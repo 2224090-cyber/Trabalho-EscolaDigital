@@ -1,0 +1,11 @@
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\bin\Debug\Horazon_Bank _projetoFinal.exe.config
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\bin\Debug\Horazon_Bank _projetoFinal.exe
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\bin\Debug\Horazon_Bank _projetoFinal.pdb
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.AssemblyReference.cache
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Form1.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Properties.Resources.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.GenerateResource.cache
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.CoreCompileInputs.cache
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.exe
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.pdb
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.exe.config
