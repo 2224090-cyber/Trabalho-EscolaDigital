@@ -9,3 +9,6 @@ C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horaz
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.exe
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.pdb
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.exe.config
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.criar_conta.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\bin\Debug\Guna.UI2.dll
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_.4009B234.Up2Date

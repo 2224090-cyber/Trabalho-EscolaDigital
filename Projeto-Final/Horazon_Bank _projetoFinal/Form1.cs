@@ -35,6 +35,19 @@ namespace Horazon_Bank__projetoFinal
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+
+
+            this.Hide();
+            using (var criar_Conta = new criar_conta())
+            {
+
+                criar_Conta.ShowDialog();
+
+            }
+            this.Show();
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
