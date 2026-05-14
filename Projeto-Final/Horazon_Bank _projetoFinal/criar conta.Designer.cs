@@ -54,6 +54,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -108,7 +109,7 @@
             this.guna2ComboBox1.Location = new System.Drawing.Point(620, 470);
             this.guna2ComboBox1.MaxDropDownItems = 12;
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(190, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(109, 36);
             this.guna2ComboBox1.TabIndex = 3;
             // 
             // guna2ComboBox2
@@ -134,9 +135,9 @@
             "10    Outubro\t",
             "11    Novembro\t",
             "12    Dezembro\t"});
-            this.guna2ComboBox2.Location = new System.Drawing.Point(833, 470);
+            this.guna2ComboBox2.Location = new System.Drawing.Point(768, 470);
             this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(199, 36);
+            this.guna2ComboBox2.Size = new System.Drawing.Size(150, 36);
             this.guna2ComboBox2.TabIndex = 4;
             // 
             // guna2ComboBox3
@@ -264,10 +265,10 @@
             "1917",
             "1916",
             "1915"});
-            this.guna2ComboBox3.Location = new System.Drawing.Point(1061, 470);
+            this.guna2ComboBox3.Location = new System.Drawing.Point(950, 470);
             this.guna2ComboBox3.MaxDropDownItems = 12;
             this.guna2ComboBox3.Name = "guna2ComboBox3";
-            this.guna2ComboBox3.Size = new System.Drawing.Size(199, 36);
+            this.guna2ComboBox3.Size = new System.Drawing.Size(109, 36);
             this.guna2ComboBox3.TabIndex = 5;
             // 
             // guna2TextBox4
@@ -336,6 +337,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
             this.guna2Button2.TabIndex = 10;
             this.guna2Button2.Text = "Continuar";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // label1
             // 
@@ -527,6 +529,26 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Começar no Horizon Bank\r\n";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightCoral;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Dubai", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(1269, -1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(59, 55);
+            this.button3.TabIndex = 22;
+            this.button3.Text = " ";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // criar_conta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,7 +556,8 @@
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(0, 1);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1346, 759);
+            this.ClientSize = new System.Drawing.Size(1345, 759);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -597,5 +620,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button3;
     }
 }
