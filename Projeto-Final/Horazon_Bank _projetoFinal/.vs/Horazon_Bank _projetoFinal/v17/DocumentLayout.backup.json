@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\documentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:documentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -30,19 +38,44 @@
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T10:21:42.55Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "criar conta.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\criar conta.cs",
+              "RelativeDocumentMoniker": "criar conta.cs",
+              "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\criar conta.cs [Design]",
+              "RelativeToolTip": "criar conta.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T07:38:07.604Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAowCQAAAAAAAAAAAAAAA==",
+              "Title": "verificac\u00E3o_de_conta.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs",
+              "RelativeDocumentMoniker": "verificac\u00E3o_de_conta.cs",
+              "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs [Design]",
+              "RelativeToolTip": "verificac\u00E3o_de_conta.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T08:51:24.938Z"
+              "WhenOpened": "2026-05-21T07:38:16.344Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "documentos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\documentos.cs",
+              "RelativeDocumentMoniker": "documentos.cs",
+              "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\documentos.cs [Design]",
+              "RelativeToolTip": "documentos.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T07:38:31.189Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
