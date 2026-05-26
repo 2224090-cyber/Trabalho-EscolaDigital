@@ -56,14 +56,20 @@ namespace Horazon_Bank__projetoFinal
             this.Show();
 
 
+        }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (var Form1 = new Form1())
+            {
+                Form1.ShowDialog();
+            }
+            this.Show();
+        }
 
-
-
-
-
-
-
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

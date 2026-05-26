@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -39,6 +40,30 @@ namespace Horazon_Bank__projetoFinal
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+            this.Hide();
+            using (var Documentos = new documentos ())
+            {
+
+                Documentos .ShowDialog();
+
+            }
+            this.Show();
+
+
+
+
+
+
 
         }
     }

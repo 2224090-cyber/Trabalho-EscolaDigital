@@ -10,27 +10,11 @@ using System.Windows.Forms;
 
 namespace Horazon_Bank__projetoFinal
 {
-    public partial class documentos : Form
+    public partial class menu_principal : Form
     {
-        public documentos()
+        public menu_principal()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-            this.Hide();
-            using (var Loading = new Loading())
-            {
-
-                Loading.ShowDialog();
-
-            }
-            this.Show();
-
-
         }
     }
 }

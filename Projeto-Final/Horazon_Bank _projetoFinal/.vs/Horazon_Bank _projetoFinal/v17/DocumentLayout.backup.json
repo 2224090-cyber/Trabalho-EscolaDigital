@@ -3,11 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,7 +11,18 @@
       "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:documentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\documents\\github\\trabalho-escoladigital\\projeto-final\\horazon_bank _projetofinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2224090\\Desktop\\Horazon_Bank\\Horazon_Bank _projetoFinal\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:verificac\u00E3o_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -26,11 +33,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -38,24 +45,47 @@
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T10:21:42.55Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "verificac\u00E3o_de_conta.cs",
+              "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs",
+              "RelativeDocumentMoniker": "verificac\u00E3o_de_conta.cs",
+              "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs",
+              "RelativeToolTip": "verificac\u00E3o_de_conta.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T10:35:07.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank\\Horazon_Bank _projetoFinal\\Form1.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Desktop\\Horazon_Bank\\Horazon_Bank _projetoFinal\\Form1.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank\\Horazon_Bank _projetoFinal\\Form1.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Desktop\\Horazon_Bank\\Horazon_Bank _projetoFinal\\Form1.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAhwC8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T10:34:42.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "criar conta.cs [Design]",
               "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\criar conta.cs",
               "RelativeDocumentMoniker": "criar conta.cs",
               "ToolTip": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\criar conta.cs [Design]",
               "RelativeToolTip": "criar conta.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T07:38:07.604Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-21T07:38:07.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "verificac\u00E3o_de_conta.cs [Design]",
               "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\verificac\u00E3o_de_conta.cs",
               "RelativeDocumentMoniker": "verificac\u00E3o_de_conta.cs",
@@ -67,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "documentos.cs [Design]",
               "DocumentMoniker": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\Projeto-Final\\Horazon_Bank _projetoFinal\\documentos.cs",
               "RelativeDocumentMoniker": "documentos.cs",
