@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|c:\\users\\2224098\\onedrive - escola digital\\ambiente de trabalho\\github\\trabalho-escoladigital\\projetofinal\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\repositories\\filmerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:repositories\\filmerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\utils\\sessao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:utils\\sessao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\repositories\\utilizadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:repositories\\utilizadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\models\\filme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:models\\filme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA3B0607-9029-45C4-858E-94D708ECD3C1}|ProjetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T09:00:43.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Data\\Database.cs",
+              "RelativeDocumentMoniker": "Data\\Database.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Data\\Database.cs",
+              "RelativeToolTip": "Data\\Database.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:58:46.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Utilizador.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Utilizador.cs",
+              "RelativeDocumentMoniker": "Models\\Utilizador.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Utilizador.cs",
+              "RelativeToolTip": "Models\\Utilizador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:58:45.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Categoria.cs",
+              "RelativeToolTip": "Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:58:43.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Sessao.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Utils\\Sessao.cs",
+              "RelativeDocumentMoniker": "Utils\\Sessao.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Utils\\Sessao.cs",
+              "RelativeToolTip": "Utils\\Sessao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T10:47:22.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FilmeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Repositories\\FilmeRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\FilmeRepository.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Repositories\\FilmeRepository.cs",
+              "RelativeToolTip": "Repositories\\FilmeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T10:42:54.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Filme.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Filme.cs",
+              "RelativeDocumentMoniker": "Models\\Filme.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Models\\Filme.cs",
+              "RelativeToolTip": "Models\\Filme.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T09:31:41.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T08:08:48.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UtilizadorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Repositories\\UtilizadorRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UtilizadorRepository.cs",
+              "ToolTip": "C:\\Users\\2224098\\OneDrive - Escola Digital\\Ambiente de Trabalho\\GITHUB\\Trabalho-EscolaDigital\\ProjetoFinal\\Repositories\\UtilizadorRepository.cs",
+              "RelativeToolTip": "Repositories\\UtilizadorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T10:37:14.027Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
