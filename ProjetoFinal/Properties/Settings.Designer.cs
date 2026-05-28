@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjetoFinal.Properties
+namespace Horazon_Bank__projetoFinal.Properties
 {
 
 
