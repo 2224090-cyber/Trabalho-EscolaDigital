@@ -16,3 +16,10 @@ C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horaz
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacão_de_conta.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Loading.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.menu_principal.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.configuracoes.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Deposito_Saque.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Emprestimos.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Poupanca.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Trasfere.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Conversor_moedas.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Historico.resources

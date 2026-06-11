@@ -50,5 +50,10 @@ namespace Horazon_Bank__projetoFinal
         {
 
         }
+
+        private void Loading_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
