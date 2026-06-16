@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Horazon_Bank__projetoFinal
 {
-    public partial class configuracoes : Form
+    public partial class Trasfere : Form
     {
-        public configuracoes()
+        public Trasfere()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

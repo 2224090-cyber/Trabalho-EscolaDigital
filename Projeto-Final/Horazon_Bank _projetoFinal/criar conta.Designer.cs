@@ -583,6 +583,7 @@
             this.Name = "criar_conta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "criar_conta";
+            this.Load += new System.EventHandler(this.criar_conta_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);

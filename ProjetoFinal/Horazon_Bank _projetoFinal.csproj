@@ -52,12 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="configuracoes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="configuracoes.Designer.cs">
-      <DependentUpon>configuracoes.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Conta.cs" />
     <Compile Include="Conversor_moedas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +95,7 @@
     <Compile Include="Historico.Designer.cs">
       <DependentUpon>Historico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Historicocla.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,9 +128,6 @@
     <Compile Include="verificacão_de_conta.Designer.cs">
       <DependentUpon>verificacão_de_conta.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="configuracoes.resx">
-      <DependentUpon>configuracoes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Conversor_moedas.resx">
       <DependentUpon>Conversor_moedas.cs</DependentUpon>
     </EmbeddedResource>

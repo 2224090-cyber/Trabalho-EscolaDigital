@@ -53,7 +53,7 @@ namespace Horazon_Bank__projetoFinal
                 verificacão_De_Cont.ShowDialog();
 
             }
-            this.Show();
+          
 
 
         }
@@ -65,10 +65,15 @@ namespace Horazon_Bank__projetoFinal
             {
                 Form1.ShowDialog();
             }
-            this.Show();
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void criar_conta_Load(object sender, EventArgs e)
         {
 
         }

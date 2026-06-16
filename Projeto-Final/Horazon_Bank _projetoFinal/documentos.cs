@@ -28,8 +28,18 @@ namespace Horazon_Bank__projetoFinal
                 Loading.ShowDialog();
 
             }
-            this.Show();
+           
 
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void documentos_Load(object sender, EventArgs e)
+        {
 
         }
     }

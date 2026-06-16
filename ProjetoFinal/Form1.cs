@@ -35,7 +35,13 @@ namespace Horazon_Bank__projetoFinal
         private void button1_Click(object sender, EventArgs e)
         {
 
+            this.Hide();
+            using (var menu_principal = new menu_principal())
+            {
 
+                menu_principal.ShowDialog();
+
+            }
 
         }
 

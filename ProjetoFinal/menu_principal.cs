@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Horazon_Bank__projetoFinal.Deposito_Saque;
+using static Horazon_Bank__projetoFinal.Historico;
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -16,6 +18,48 @@ namespace Horazon_Bank__projetoFinal
         public menu_principal()
         {
             InitializeComponent();
+        }
+
+        public void AtualizarSaldo()
+        {
+            label2.Text = $"Saldo: {Conta.Saldo:C}";
+        }
+
+        private void AtualizarPoupanca()
+        {
+            label1.Text = $"Poupança: {Conta.Poupanca:C}";
+        }
+
+
+        private void AtualizarHistorico()
+        {
+            label2.Text = "";
+            foreach (string operacao in Conta.Operacoes) // <-- Substitui aqui!
+            {
+                label2.Text += operacao + Environment.NewLine;
+            }
+        }
+
+
+
+        private void FormPoupanca_Load(object sender, EventArgs e)
+        {
+            AtualizarPoupanca();
+        }
+
+        private void Menu_Principal_Load(object sender, EventArgs e)
+        {
+            AtualizarSaldo();
+        }
+
+        private void Menu_Principal_Activated(object sender, EventArgs e)
+        {
+            AtualizarSaldo();
+        }
+
+        private void Historico_Load(object sender, EventArgs e) 
+        { 
+            AtualizarHistorico(); 
         }
 
         private void FormShow(Form frm)
@@ -59,6 +103,9 @@ namespace Horazon_Bank__projetoFinal
         {
             ActiveButton(button1);
             ActiveFormClose();
+
+            AtualizarSaldo();
+            AtualizarSaldo();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,6 +131,7 @@ namespace Horazon_Bank__projetoFinal
         {
             ActiveButton(button5);
             FormShow(new Poupanca());
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -94,11 +142,7 @@ namespace Horazon_Bank__projetoFinal
 
         }
 
-        private void button8_Click_1(object sender, EventArgs e)
-        {
-            ActiveButton(button8);
-            FormShow(new configuracoes());
-        }
+      
         private void button7_Click(object sender, EventArgs e)
         {
 
@@ -114,6 +158,9 @@ namespace Horazon_Bank__projetoFinal
             Application.Exit();
         }
 
-      
+        private void label2_Click(object sender, EventArgs e)
+        {
+            label2.Text = $"Saldo: {Conta.Saldo:C}";
+        }
     }
 }

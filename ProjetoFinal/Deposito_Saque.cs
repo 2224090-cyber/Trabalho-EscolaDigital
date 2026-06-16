@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horazon_Bank__projetoFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,85 @@ namespace Horazon_Bank__projetoFinal
             InitializeComponent();
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            decimal valor;
+
+            if (!decimal.TryParse(textBox1.Text, out valor))
+            {
+                MessageBox.Show("Digite um valor válido.");
+                return;
+            }
+
+            if (valor <= 0)
+            {
+                MessageBox.Show("O valor deve ser maior que zero.");
+                return;
+            }
+
+            Conta.Saldo += valor;
+
+            Conta.Operacoes.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] Depósito: +{valor:C}");
+
+            MessageBox.Show("Depósito realizado com sucesso.");
+
+            textBox1.Clear();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            decimal valor;
+
+            if (!decimal.TryParse(textBox2.Text, out valor))
+            {
+                MessageBox.Show("Digite um valor válido.");
+                return;
+            }
+
+            if (valor <= 0)
+            {
+                MessageBox.Show("O valor deve ser maior que zero.");
+                return;
+            }
+
+            if (valor > Conta.Saldo)
+            {
+                MessageBox.Show("Saldo insuficiente.");
+                return;
+            }
+
+            Conta.Saldo -= valor;
+
+            Conta.Operacoes.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] Saque: -{valor:C}");
+
+            MessageBox.Show("Saque realizado com sucesso.");
+
+            textBox2.Clear();
+
+
+
+
+        }
     }
 }
+
+
+
+
+
+
+

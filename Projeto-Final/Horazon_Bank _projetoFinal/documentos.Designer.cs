@@ -262,6 +262,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = " ";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // documentos
             // 
@@ -290,6 +291,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "documentos";
             this.Text = "documentação";
+            this.Load += new System.EventHandler(this.documentos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

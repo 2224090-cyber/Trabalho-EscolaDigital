@@ -54,17 +54,17 @@ namespace Horazon_Bank__projetoFinal
             using (var Documentos = new documentos ())
             {
 
-                Documentos .ShowDialog();
+                Documentos.ShowDialog();
 
             }
-            this.Show();
+          
 
 
+        }
 
-
-
-
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
