@@ -21,18 +21,9 @@ namespace Horazon_Bank__projetoFinal
                 Conta.ValoresAlterados += AtualizarValores;
             }
 
-        public static class Historico1
-        {
-            public static List<string> Operacoes = new List<string>();
-        }
-
+        
 
         private void Poupanca_VisibleChanged(object sender, EventArgs e)
-        {
-            AtualizarValores();
-        }
-
-        private void Poupanca_Load(object sender, EventArgs e)
         {
             AtualizarValores();
         }
@@ -54,10 +45,15 @@ namespace Horazon_Bank__projetoFinal
                 label2.Text = $"Poupança: {Conta.Poupanca:C}";
             }
 
-        
+            private void Poupanca_Load(object sender, EventArgs e)
+            {
+                AtualizarValores();
+            }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+            private void button1_Click(object sender, EventArgs e)
+            {
+
+
             decimal guardar = 0;
             decimal retirar = 0;
 
@@ -100,8 +96,7 @@ namespace Horazon_Bank__projetoFinal
                 Conta.Saldo -= guardar;
                 Conta.Poupanca += guardar;
 
-                Historico1.Operacoes.Add(
-                    $"[{DateTime.Now:dd/MM/yyyy HH:mm}] Guardou na poupança: {guardar:C}");
+                Conta.AdicionarHistorico($"Poupança: -{guardar:C})");
 
                 MessageBox.Show("Valor guardado na poupança.");
             }
@@ -130,8 +125,7 @@ namespace Horazon_Bank__projetoFinal
                 Conta.Poupanca -= retirar;
                 Conta.Saldo += retirar;
 
-                Historico1.Operacoes.Add(
-                    $"[{DateTime.Now:dd/MM/yyyy HH:mm}] Retirou da poupança: {retirar:C}");
+                Conta.AdicionarHistorico($"Poupança: +{retirar:C}");
 
                 MessageBox.Show("Valor retirado da poupança.");
             }
@@ -140,9 +134,14 @@ namespace Horazon_Bank__projetoFinal
 
             textBox1.Clear();
             textBox2.Clear();
+
         }
 
-
+        protected override void OnFormClosed(FormClosedEventArgs e)
+            {
+                Conta.ValoresAlterados -= AtualizarValores;
+                base.OnFormClosed(e);
+            }
 
         private void label2_Click(object sender, EventArgs e)
         {

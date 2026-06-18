@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Horazon_Bank__projetoFinal.Deposito_Saque;
-using static Horazon_Bank__projetoFinal.Historico;
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -30,22 +28,31 @@ namespace Horazon_Bank__projetoFinal
             label1.Text = $"Poupança: {Conta.Poupanca:C}";
         }
 
-
         private void AtualizarHistorico()
         {
-            label2.Text = "";
-            foreach (string operacao in Conta.Operacoes) // <-- Substitui aqui!
+            StringBuilder sb = new StringBuilder();
+
+
+            for (int i = Conta.Historico.Count - 1; i >= 0; i--)
             {
-                label2.Text += operacao + Environment.NewLine;
+                sb.AppendLine(Conta.Historico[i]);
             }
+
+            label2.Text = sb.ToString();
         }
 
-
+        
 
         private void FormPoupanca_Load(object sender, EventArgs e)
         {
             AtualizarPoupanca();
         }
+
+        private void Historico_Load(object sender, EventArgs e)
+        {
+            AtualizarHistorico();
+        }
+
 
         private void Menu_Principal_Load(object sender, EventArgs e)
         {
@@ -55,11 +62,6 @@ namespace Horazon_Bank__projetoFinal
         private void Menu_Principal_Activated(object sender, EventArgs e)
         {
             AtualizarSaldo();
-        }
-
-        private void Historico_Load(object sender, EventArgs e) 
-        { 
-            AtualizarHistorico(); 
         }
 
         private void FormShow(Form frm)
@@ -132,6 +134,9 @@ namespace Horazon_Bank__projetoFinal
             ActiveButton(button5);
             FormShow(new Poupanca());
 
+           
+
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -151,16 +156,22 @@ namespace Horazon_Bank__projetoFinal
 
         }
 
-       
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ActiveButton(button9);
+            FormShow(new perfil());
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             label2.Text = $"Saldo: {Conta.Saldo:C}";
         }
+
+       
     }
 }

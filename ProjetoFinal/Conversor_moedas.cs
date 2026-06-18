@@ -230,10 +230,5 @@ namespace Horazon_Bank__projetoFinal
 
             textBox1.Focus();          
         }
-
-        private void Conversor_moedas_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

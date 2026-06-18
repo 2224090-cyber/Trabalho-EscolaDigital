@@ -109,7 +109,7 @@
             this.guna2ComboBox1.Location = new System.Drawing.Point(620, 470);
             this.guna2ComboBox1.MaxDropDownItems = 12;
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(109, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(155, 36);
             this.guna2ComboBox1.TabIndex = 3;
             // 
             // guna2ComboBox2
@@ -135,9 +135,9 @@
             "10    Outubro\t",
             "11    Novembro\t",
             "12    Dezembro\t"});
-            this.guna2ComboBox2.Location = new System.Drawing.Point(768, 470);
+            this.guna2ComboBox2.Location = new System.Drawing.Point(790, 470);
             this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(150, 36);
+            this.guna2ComboBox2.Size = new System.Drawing.Size(174, 36);
             this.guna2ComboBox2.TabIndex = 4;
             // 
             // guna2ComboBox3
@@ -265,10 +265,10 @@
             "1917",
             "1916",
             "1915"});
-            this.guna2ComboBox3.Location = new System.Drawing.Point(950, 470);
+            this.guna2ComboBox3.Location = new System.Drawing.Point(999, 470);
             this.guna2ComboBox3.MaxDropDownItems = 12;
             this.guna2ComboBox3.Name = "guna2ComboBox3";
-            this.guna2ComboBox3.Size = new System.Drawing.Size(109, 36);
+            this.guna2ComboBox3.Size = new System.Drawing.Size(174, 36);
             this.guna2ComboBox3.TabIndex = 5;
             // 
             // guna2TextBox4
@@ -376,23 +376,27 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(620, 360);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(312, 47);
+            this.panel2.Size = new System.Drawing.Size(312, 55);
             this.panel2.TabIndex = 5;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(6, 26);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 22);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 13);
+            this.textBox1.Size = new System.Drawing.Size(308, 45);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 45);
+            this.label3.Size = new System.Drawing.Size(115, 53);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nome próprio";
             // 
@@ -403,23 +407,27 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(969, 361);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(312, 47);
+            this.panel3.Size = new System.Drawing.Size(312, 54);
             this.panel3.TabIndex = 7;
             // 
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(6, 26);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(3, 21);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(306, 13);
+            this.textBox2.Size = new System.Drawing.Size(304, 45);
             this.textBox2.TabIndex = 6;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 45);
+            this.label2.Size = new System.Drawing.Size(115, 52);
             this.label2.TabIndex = 5;
             this.label2.Text = "Apelido";
             // 
@@ -471,9 +479,9 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(623, 624);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(326, 23);
+            this.label6.Size = new System.Drawing.Size(189, 23);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Número de telemóvel ou e-mail";
+            this.label6.Text = "Digite o seu e-mail";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7

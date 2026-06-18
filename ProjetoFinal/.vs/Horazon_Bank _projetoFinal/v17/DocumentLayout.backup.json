@@ -1,12 +1,117 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2224090\\Documents\\GitHub\\Trabalho-EscolaDigital\\ProjetoFinal\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\emprestimos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:emprestimos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\loading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:loading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\perfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:perfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "menu_principal.cs",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\menu_principal.cs",
+              "RelativeDocumentMoniker": "menu_principal.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\menu_principal.cs*",
+              "RelativeToolTip": "menu_principal.cs*",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAowKQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T10:19:51.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Emprestimos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Emprestimos.cs",
+              "RelativeDocumentMoniker": "Emprestimos.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Emprestimos.cs [Design]",
+              "RelativeToolTip": "Emprestimos.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T10:19:16.939Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Loading.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Loading.cs",
+              "RelativeDocumentMoniker": "Loading.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Loading.cs [Design]",
+              "RelativeToolTip": "Loading.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T10:19:15.607Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "perfil.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\perfil.cs",
+              "RelativeDocumentMoniker": "perfil.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\perfil.cs [Design]*",
+              "RelativeToolTip": "perfil.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T10:19:06.892Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "menu_principal.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\menu_principal.cs",
+              "RelativeDocumentMoniker": "menu_principal.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\menu_principal.cs [Design]*",
+              "RelativeToolTip": "menu_principal.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T10:14:15.502Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T08:18:55.144Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

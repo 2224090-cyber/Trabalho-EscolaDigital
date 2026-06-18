@@ -12,61 +12,57 @@ namespace Horazon_Bank__projetoFinal
 {
     public partial class Historico : Form
     {
-
-        class Historico1
-        {
-            public static List<string> Operacoes { get; } = new List<string>();
-        }
-
-
         public Historico()
         {
             InitializeComponent();
-            AtualizarHistorico(); // Adiciona isto aqui!
+            Conta.ValoresAlterados += AtualizarHistorico;
         }
 
-        private void Historico_Load(object sender, EventArgs e)
-        {
-            AtualizarHistorico();
-        }
-
-        private void AtualizarHistorico()
-        {
-            label2.Text = "";
-
-            foreach (string operacao in Historico1.Operacoes)
-            {
-                label2.Text += operacao + Environment.NewLine;
-            }
-        }
 
         private void Historico_VisibleChanged(object sender, EventArgs e)
         {
             AtualizarHistorico();
         }
 
-        private void Historico_Shown(object sender, EventArgs e)
+        protected override void OnShown(EventArgs e)
         {
+            base.OnShown(e);
             AtualizarHistorico();
         }
+
+        private void AtualizarHistorico()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(AtualizarHistorico));
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = Conta.Historico.Count - 1; i >= 0; i--)
+            {
+                sb.AppendLine(Conta.Historico[i]);
+            }
+
+            label2.Text = sb.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
-            label2.Text = ""; foreach (string operacao in Historico1.Operacoes) { label2.Text += operacao + Environment.NewLine; }
-
-
+       
 
 
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-

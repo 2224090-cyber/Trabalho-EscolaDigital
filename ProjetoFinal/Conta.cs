@@ -1,18 +1,57 @@
 ﻿using System;
-using System.Collections.Generic; // Essencial para a List funcionar
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Horazon_Bank__projetoFinal
 {
+
+
     public static class Conta
     {
-        public static decimal Saldo { get; set; } = 0;
+        private static decimal saldo;
+        private static decimal poupanca;
 
-        public static decimal Poupanca { get; set; } = 0; // Como vi que usas no Poupanca.cs
-
-        // ESTA É A LINHA QUE RESOLVE O TEU ERRO:
-        public static List<string> Operacoes { get; set; } = new List<string>();
-
-        // Este é o evento que usaste no código da Poupança:
         public static event Action ValoresAlterados;
+
+        public static decimal Saldo
+        {
+            get { return saldo; }
+            set
+            {
+                saldo = value;
+                ValoresAlterados?.Invoke();
+            }
+        }
+
+        public static decimal Poupanca
+        {
+            get { return poupanca; }
+            set
+            {
+                poupanca = value;
+                ValoresAlterados?.Invoke();
+            }
+
+        }
+
+        public static List<string> Historico = new List<string>();
+
+        public static void AdicionarHistorico(string texto)
+        {
+            Historico.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] {texto}");
+            ValoresAlterados?.Invoke();
+        }
+
+        public static decimal SaldoDevedor { get; set; } = 0;
+        public static decimal ParcelaMensal { get; set; } = 0;
+        public static bool EmprestimoAtivo { get; set; } = false;
+        public static bool EmprestimoAprovado { get; set; } = false;
+
     }
+    
 }
+
+
+

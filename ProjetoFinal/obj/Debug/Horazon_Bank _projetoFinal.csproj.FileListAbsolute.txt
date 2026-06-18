@@ -16,6 +16,7 @@ C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horaz
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacão_de_conta.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Loading.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.menu_principal.resources
+C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.configuracoes.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Deposito_Saque.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Emprestimos.resources
 C:\Users\2224090\Desktop\Horazon_Bank\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Poupanca.resources
@@ -69,3 +70,4 @@ C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__proj
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.GenerateResource.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.CoreCompileInputs.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_.4009B234.Up2Date
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.perfil.resources

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horazon_Bank__projetoFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,50 +13,86 @@ namespace Horazon_Bank__projetoFinal
 {
     public partial class Emprestimos : Form
     {
-        decimal saldoDevedor = 0;
-        decimal parcelaMensal = 0;
-
-        bool emprestimoAprovado = false;
-        bool emprestimoAtivo = false;
-
-        private void ApenasNumerosVirgula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-
-            TextBox txt = (TextBox)sender;
-
-            if (e.KeyChar == ',' && txt.Text.Contains(","))
-            {
-                e.Handled = true;
-            }
-        }
-
-
-
         public Emprestimos()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
+            Conta.ValoresAlterados += AtualizarValores;
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        public static decimal SaldoDevedor { get; set; } = 0;
+        public static decimal ParcelaMensal { get; set; } = 0;
+        public static bool EmprestimoAtivo { get; set; } = false;
+        public static bool EmprestimoAprovado { get; set; } = false;
 
+        private void AtualizarEmprestimo()
+        {
+            textBox3.Text = Conta.Poupanca.ToString("F2");
+
+            if (Conta.EmprestimoAtivo)
+            {
+                label6.Text = "Empréstimo Ativo";
+                label7.Text =
+                    $"Total a pagar: {Conta.SaldoDevedor:C}\n" +
+                    $"Parcela mensal: {Conta.ParcelaMensal:C}";
+
+                // Bloquear campos
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                textBox4.Enabled = false;
+                button1.Enabled = false;
+            }
+            else
+            {
+                label6.Text = "";
+                label7.Text = "";
+                label8.Text = "";
+
+                // Desbloquear campos
+                textBox1.Enabled = true;
+                textBox2.Enabled = true;
+                textBox4.Enabled = true;
+                button1.Enabled = true;
+            }
+        }
+
+        private void FormEmprestimo_Load(object sender, EventArgs e)
+        {
+            AtualizarEmprestimo();
+        }
+
+        private void AtualizarValores()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(AtualizarValores));
+                return;
+            }
+
+            textBox3.Text = Conta.Poupanca.ToString("F2");
+            AtualizarEmprestimo();
+        }
+
+        private void Emprestimos_VisibleChanged(object sender, EventArgs e)
+        {
+            AtualizarEmprestimo();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            AtualizarEmprestimo();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            Conta.ValoresAlterados -= AtualizarValores;
+            base.OnFormClosed(e);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (emprestimoAtivo)
+            if (Conta.EmprestimoAtivo)
             {
                 MessageBox.Show("Já existe um empréstimo ativo. Quite-o antes de solicitar outro.");
                 return;
@@ -70,7 +107,7 @@ namespace Horazon_Bank__projetoFinal
             }
 
             decimal salario;
-            decimal poupanca = 0;
+            decimal poupanca = Conta.Poupanca;
             decimal valorEmprestimo;
             int prazo;
 
@@ -82,12 +119,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(textBox3.Text))
-            {
-                decimal.TryParse(textBox3.Text, out poupanca);
-            }
-
-            if (salario <= 0 || valorEmprestimo <= 0 || prazo <= 0 || poupanca < 0)
+            if (salario <= 0 || valorEmprestimo <= 0 || prazo <= 0)
             {
                 MessageBox.Show("Valores inválidos.");
                 return;
@@ -100,65 +132,71 @@ namespace Horazon_Bank__projetoFinal
             else if (poupanca >= 5000)
                 juros = 0.10m;
             else
-                juros = 0.25m;
+                juros = 0.15m;
 
             decimal valorTotal = valorEmprestimo + (valorEmprestimo * juros);
 
-            parcelaMensal = valorTotal / prazo;
-
-            saldoDevedor = valorTotal;
+            Conta.ParcelaMensal = valorTotal / prazo;
+            Conta.SaldoDevedor = valorTotal;
 
             label7.Text =
                 $"Total a pagar: {valorTotal:C}\n" +
-                $"Parcela mensal: {parcelaMensal:C}";
+                $"Parcela mensal: {Conta.ParcelaMensal:C}";
 
-            if (parcelaMensal <= salario * 0.30m)
+            if (Conta.ParcelaMensal <= salario * 0.30m)
             {
-                emprestimoAprovado = true;
+                Conta.EmprestimoAprovado = true;
                 label8.Text = "Empréstimo APROVADO";
             }
             else
             {
-                emprestimoAprovado = false;
+                Conta.EmprestimoAprovado = false;
                 label8.Text = "Empréstimo NÃO APROVADO";
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (saldoDevedor <= 0)
+            if (Conta.SaldoDevedor <= 0)
             {
                 MessageBox.Show("Nenhum empréstimo válido foi calculado.");
                 return;
             }
 
-            if (!emprestimoAprovado)
+            if (!Conta.EmprestimoAprovado)
             {
                 MessageBox.Show("Empréstimo não aprovado.");
                 return;
             }
 
-            if (emprestimoAtivo)
+            if (Conta.EmprestimoAtivo)
             {
                 MessageBox.Show("Já existe um empréstimo ativo.");
                 return;
             }
 
-            emprestimoAtivo = true;
+            decimal valorEmprestimo = decimal.Parse(textBox2.Text);
+
+            Conta.Saldo += valorEmprestimo;
+            Conta.AdicionarHistorico($"Emprestimo: +{valorEmprestimo:C}");
+
+            Conta.EmprestimoAtivo = true;
 
             label6.Text = "Empréstimo Ativo";
 
             textBox1.Enabled = false;
-            textBox3.Enabled = false;
             textBox2.Enabled = false;
             textBox4.Enabled = false;
+            button1.Enabled = false;
+
+            MessageBox.Show("Empréstimo aceito com sucesso.");
+            AtualizarEmprestimo();
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            if (!emprestimoAtivo)
+            if (!Conta.EmprestimoAtivo)
             {
                 MessageBox.Show("Não existe empréstimo ativo.");
                 return;
@@ -178,27 +216,50 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            saldoDevedor -= pagamento;
-
-            if (saldoDevedor <= 0)
+            if (pagamento > Conta.Saldo)
             {
-                saldoDevedor = 0;
-                parcelaMensal = 0;
+                MessageBox.Show("Saldo insuficiente na conta.");
+                return;
+            }
 
-                emprestimoAtivo = false;
-                emprestimoAprovado = false;
+            // ✅ NOVO: Se pagar mais que deve, devolve o excedente
+            decimal pagamentoReal = pagamento;
+            decimal excedente = 0;
+
+            if (pagamento > Conta.SaldoDevedor)
+            {
+                excedente = pagamento - Conta.SaldoDevedor;
+                pagamentoReal = Conta.SaldoDevedor;
+
+                MessageBox.Show($"Você pagou {excedente:C} a mais. Esse valor será devolvido à sua conta.");
+            }
+
+            Conta.Saldo -= pagamentoReal;
+            Conta.Saldo += excedente; // Devolve o excedente
+            Conta.SaldoDevedor -= pagamentoReal;
+            Conta.AdicionarHistorico($"Pagamento do emprestimo: -{pagamentoReal:C}");
+
+            if (Conta.SaldoDevedor <= 0)
+            {
+                Conta.SaldoDevedor = 0;
+                Conta.ParcelaMensal = 0;
+
+                Conta.EmprestimoAtivo = false;
+                Conta.EmprestimoAprovado = false;
+
+                Conta.AdicionarHistorico("Empréstimo quitado");
 
                 textBox1.Clear();
-                textBox3.Clear();
                 textBox2.Clear();
                 textBox4.Clear();
                 textBox5.Clear();
 
+                textBox3.Text = Conta.Poupanca.ToString("F2");
+
                 textBox1.Enabled = true;
-                textBox3.Enabled = true;
                 textBox2.Enabled = true;
                 textBox4.Enabled = true;
-                textBox5.Enabled = true;
+                button1.Enabled = true;
 
                 label7.Text = "";
                 label8.Text = "";
@@ -209,17 +270,34 @@ namespace Horazon_Bank__projetoFinal
             else
             {
                 label7.Text =
-                    $"Total a pagar: {saldoDevedor:C}\n" +
-                    $"Parcela mensal: {parcelaMensal:C}";
+                    $"Total a pagar: {Conta.SaldoDevedor:C}\n" +
+                    $"Parcela mensal: {Conta.ParcelaMensal:C}";
 
                 textBox5.Clear();
+                MessageBox.Show("Pagamento realizado com sucesso.");
             }
 
+            AtualizarEmprestimo();
         }
 
         private void Emprestimos_Load(object sender, EventArgs e)
         {
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

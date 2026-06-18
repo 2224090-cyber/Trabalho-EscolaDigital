@@ -95,7 +95,6 @@
     <Compile Include="Historico.Designer.cs">
       <DependentUpon>Historico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historicocla.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +106,12 @@
     </Compile>
     <Compile Include="menu_principal.Designer.cs">
       <DependentUpon>menu_principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="perfil.Designer.cs">
+      <DependentUpon>perfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Poupanca.cs">
       <SubType>Form</SubType>
@@ -154,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menu_principal.resx">
       <DependentUpon>menu_principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfil.resx">
+      <DependentUpon>perfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poupanca.resx">
       <DependentUpon>Poupanca.cs</DependentUpon>

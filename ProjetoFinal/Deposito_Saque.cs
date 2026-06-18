@@ -1,5 +1,4 @@
-﻿using Horazon_Bank__projetoFinal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +17,7 @@ namespace Horazon_Bank__projetoFinal
             InitializeComponent();
         }
 
+      
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -47,8 +47,7 @@ namespace Horazon_Bank__projetoFinal
             }
 
             Conta.Saldo += valor;
-
-            Conta.Operacoes.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] Depósito: +{valor:C}");
+            Conta.AdicionarHistorico($"Depósito: +{valor:C}");
 
             MessageBox.Show("Depósito realizado com sucesso.");
 
@@ -80,23 +79,11 @@ namespace Horazon_Bank__projetoFinal
             }
 
             Conta.Saldo -= valor;
-
-            Conta.Operacoes.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] Saque: -{valor:C}");
+            Conta.AdicionarHistorico($"Saque: -{valor:C}");
 
             MessageBox.Show("Saque realizado com sucesso.");
 
             textBox2.Clear();
-
-
-
-
         }
     }
 }
-
-
-
-
-
-
-
