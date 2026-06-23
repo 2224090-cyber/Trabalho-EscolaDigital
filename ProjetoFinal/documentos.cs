@@ -39,7 +39,17 @@ namespace Horazon_Bank__projetoFinal
             string cartaoLimpo = cartao.Replace(" ", "").ToUpper();
 
             // Formato: 8 dígitos + 2 letras (total 10 caracteres)
-            return Regex.IsMatch(cartaoLimpo, @"^\d{8}[A-Z]{2}$");
+            if (!Regex.IsMatch(cartaoLimpo, @"^\d{8}[A-Z]{2}$"))
+                return false;
+
+            // Extrair só a parte numérica (os primeiros 8 dígitos)
+            string parteNumerica = cartaoLimpo.Substring(0, 8);
+
+            // Rejeitar sequências óbvias
+            if (ContemSequenciaObvia(parteNumerica))
+                return false;
+
+            return true;
         }
 
         // Validar Passaporte (formato flexível: letras e números)
@@ -65,9 +75,67 @@ namespace Horazon_Bank__projetoFinal
 
             // NIF português começa com: 1, 2, 5, 6, 8 ou 9
             char primeiroDigito = nif[0];
-            return primeiroDigito == '1' || primeiroDigito == '2' ||
-                   primeiroDigito == '5' || primeiroDigito == '6' ||
-                   primeiroDigito == '8' || primeiroDigito == '9';
+            bool prefixoValido = primeiroDigito == '1' || primeiroDigito == '2' ||
+                                  primeiroDigito == '5' || primeiroDigito == '6' ||
+                                  primeiroDigito == '8' || primeiroDigito == '9';
+
+            if (!prefixoValido)
+                return false;
+
+            // Rejeitar sequências óbvias
+            if (ContemSequenciaObvia(nif))
+                return false;
+
+            return true;
+        }
+
+        // Verifica se uma string de dígitos é uma sequência óbvia (crescente, decrescente ou repetida)
+        private bool ContemSequenciaObvia(string digitos)
+        {
+            if (string.IsNullOrWhiteSpace(digitos) || digitos.Length < 3)
+                return false;
+
+            // Verifica sequência crescente (ex: 12345678, 123456789)
+            bool sequenciaCrescente = true;
+            for (int i = 0; i < digitos.Length - 1; i++)
+            {
+                int atual = digitos[i] - '0';
+                int proximo = digitos[i + 1] - '0';
+
+                if (proximo != atual + 1)
+                {
+                    sequenciaCrescente = false;
+                    break;
+                }
+            }
+
+            if (sequenciaCrescente)
+                return true;
+
+            // Verifica sequência decrescente (ex: 87654321, 987654321)
+            bool sequenciaDecrescente = true;
+            for (int i = 0; i < digitos.Length - 1; i++)
+            {
+                int atual = digitos[i] - '0';
+                int proximo = digitos[i + 1] - '0';
+
+                if (proximo != atual - 1)
+                {
+                    sequenciaDecrescente = false;
+                    break;
+                }
+            }
+
+            if (sequenciaDecrescente)
+                return true;
+
+            // Verifica se todos os dígitos são iguais (ex: 11111111, 999999999)
+            bool todosIguais = digitos.All(c => c == digitos[0]);
+
+            if (todosIguais)
+                return true;
+
+            return false;
         }
 
         // Validar Morada
@@ -86,7 +154,7 @@ namespace Horazon_Bank__projetoFinal
             string nif = textBox2.Text.Trim();
             string morada = textBox3.Text.Trim();
 
-            // Validar Cartão de Cidadão
+            // ===== VALIDAR CARTÃO DE CIDADÃO =====
             if (string.IsNullOrWhiteSpace(cartao))
             {
                 MessageBox.Show("Cartão de Cidadão ou Passaporte é obrigatório.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -101,26 +169,27 @@ namespace Horazon_Bank__projetoFinal
             {
                 MessageBox.Show(
                     "Cartão de Cidadão ou Passaporte inválido.\n\n" +
-                    "Cartão de Cidadão: 12345678 AB\n" +
+                    "Cartão de Cidadão: 12345678 AB (sem sequências óbvias)\n" +
                     "Passaporte: AB123456",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
                 return;
             }
 
-            // Validar NIF
+            // ===== VALIDAR NIF =====
             if (!ValidarNIF(nif))
             {
                 MessageBox.Show(
                     "NIF inválido.\n\n" +
-                    "O NIF deve ter 9 dígitos e começar com 1, 2, 5, 6, 8 ou 9.\n" +
-                    "Exemplo: 123456789",
+                    "O NIF deve ter 9 dígitos, começar com 1, 2, 5, 6, 8 ou 9,\n" +
+                    "e não pode ser uma sequência óbvia (ex: 123456789).\n" +
+                    "Exemplo: 245678912",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
                 return;
             }
 
-            // Validar Morada
+            // ===== VALIDAR MORADA =====
             if (!ValidarMorada(morada))
             {
                 MessageBox.Show(
@@ -132,7 +201,12 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Se chegou aqui, tudo está válido
+            // ===== TUDO VÁLIDO - GUARDAR NA CLASSE ESTÁTICA =====
+            Conta.CartaoCidadaoPassaporte = cartao.Replace(" ", "").ToUpper();
+            Conta.NIF = nif;
+            Conta.Morada = morada;
+
+            // Abrir Loading
             this.Hide();
             using (var Loading = new Loading())
             {

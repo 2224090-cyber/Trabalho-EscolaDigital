@@ -52,7 +52,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 46);
+            this.label1.Size = new System.Drawing.Size(309, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Documentação ";
             // 
@@ -62,7 +62,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1239, 69);
+            this.label2.Size = new System.Drawing.Size(1283, 72);
             this.label2.TabIndex = 1;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -72,7 +72,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(375, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 32);
+            this.label3.Size = new System.Drawing.Size(191, 34);
             this.label3.TabIndex = 4;
             this.label3.Text = "Horizon Bank";
             // 
@@ -92,7 +92,7 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(459, 21);
+            this.label4.Size = new System.Drawing.Size(498, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Digite o número do seu cartão de cidadão ou passaporte";
             // 
@@ -107,7 +107,7 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 307);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(218, 21);
+            this.label5.Size = new System.Drawing.Size(233, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "Digite o número do seu NIF\r\n";
             // 
@@ -117,7 +117,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(12, 425);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(173, 21);
+            this.label6.Size = new System.Drawing.Size(186, 21);
             this.label6.TabIndex = 10;
             this.label6.Text = "Digite a sua morada ";
             // 
@@ -125,6 +125,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Window;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.81443F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(16, 474);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -136,6 +137,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.81443F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(16, 244);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -147,6 +149,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Window;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.81443F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(16, 357);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";

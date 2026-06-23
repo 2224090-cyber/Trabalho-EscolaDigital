@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -53,8 +55,8 @@ namespace Horazon_Bank__projetoFinal
             // Preencher gênero
             guna2ComboBox4.Items.Clear();
             guna2ComboBox4.Items.Add("Selecione o gênero");
-            guna2ComboBox4.Items.Add("Homem");
-            guna2ComboBox4.Items.Add("Mulher");
+            guna2ComboBox4.Items.Add("Masculino");
+            guna2ComboBox4.Items.Add("Feminino");
             guna2ComboBox4.Items.Add("Outro");
             guna2ComboBox4.SelectedIndex = 0;
         }
@@ -98,6 +100,43 @@ namespace Horazon_Bank__projetoFinal
             return dia <= diasPorMes[mes - 1];
         }
 
+        // Calcular idade a partir da data de nascimento
+        private int CalcularIdade(int dia, int mes, int ano)
+        {
+            DateTime dataNascimento = new DateTime(ano, mes, dia);
+            DateTime hoje = DateTime.Now;
+
+            int idade = hoje.Year - dataNascimento.Year;
+
+            if (dataNascimento.Date > hoje.AddYears(-idade))
+                idade--;
+
+            return idade;
+        }
+
+        // ===================== CAPITALIZAÇÃO DE TEXTO =====================
+
+        private string CapitalizarTexto(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+                return texto;
+
+            string[] palavras = texto.Split(' ');
+
+            for (int i = 0; i < palavras.Length; i++)
+            {
+                if (palavras[i].Length > 0)
+                {
+                    palavras[i] = char.ToUpper(palavras[i][0]) +
+                                  (palavras[i].Length > 1 ? palavras[i].Substring(1) : "");
+                }
+            }
+
+            return string.Join(" ", palavras);
+        }
+
+        // ===================== CLIQUES (vazios / utilitários) =====================
+
         private void label3_Click(object sender, EventArgs e)
         {
         }
@@ -114,10 +153,20 @@ namespace Horazon_Bank__projetoFinal
         {
         }
 
+        private void label_ForcaSenha_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        // ===================== CRIAR CONTA =====================
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -182,6 +231,21 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
+            // Validar idade mínima (18 anos)
+            int idade = CalcularIdade(dia, mes, ano);
+
+            if (idade < 18)
+            {
+                MessageBox.Show(
+                    "É necessário ter no mínimo 18 anos para criar uma conta no Horizon Bank.\nO programa será encerrado.",
+                    "Idade Insuficiente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                Application.Exit();
+                return;
+            }
+
             // Validar Email
             if (!ValidarEmail(guna2TextBox4.Text))
             {
@@ -205,12 +269,51 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Se chegou aqui, todos os dados são válidos
+
+        
+
+            Conta.CodigoVerificacao = Conta.GerarCodigoVerificacao();
+
+            email emailBanco = new email(
+                "smtp.gmail.com",
+                587,
+                "Horizonbank.f1@gmail.com",      // <-- email do banco
+                "liog nhuo xddf jpwk"            // <-- senha de app do Gmail
+            );
+
+            bool enviado = emailBanco.EnviarCodigoVerificacao(guna2TextBox4.Text, Conta.CodigoVerificacao);
+
+            if (!enviado)
+            {
+                MessageBox.Show("Não foi possível enviar o código de verificação. Verifique o email e tente novamente.",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             this.Hide();
-            using (var verificacão_De_Cont = new verificacão_de_conta())
+            using (var verificacão_De_Cont = new verificacao_de_conta())
             {
                 verificacão_De_Cont.ShowDialog();
             }
+
+            // Só guarda os dados da conta DEPOIS da verificação ser bem-sucedida
+            // (ver nota abaixo sobre mover isto para dentro do verificacao_de_conta)
+            Conta.Nome = textBox1.Text;
+            Conta.Apelido = textBox2.Text;
+            Conta.Dia = int.Parse(guna2ComboBox1.SelectedItem.ToString());
+            Conta.Mes = guna2ComboBox2.SelectedIndex;
+            Conta.Ano = int.Parse(guna2ComboBox3.SelectedItem.ToString());
+            Conta.Email = guna2TextBox4.Text;
+            Conta.Senha = guna2TextBox5.Text;
+            Conta.Id = Conta.GerarId();
+
+            this.Hide();
+            using (var menuPrincipal = new menu_principal())
+            {
+                menuPrincipal.ShowDialog();
+            }
+
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -229,13 +332,79 @@ namespace Horazon_Bank__projetoFinal
         private void criar_conta_Load(object sender, EventArgs e)
         {
             PreencherComboBoxes();
+            guna2TextBox5.PasswordChar = '*';
+            button1.Text = "Mostrar";
         }
+
+        // ===================== NOME (textBox1) =====================
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            int posicaoCursor = textBox1.SelectionStart;
+            string texto = textBox1.Text;
+
+            // Se o utilizador digitou um espaço, remove-o e salta para o apelido
+            if (texto.EndsWith(" "))
+            {
+                textBox1.Text = texto.TrimEnd();
+                textBox2.Focus();
+                textBox2.SelectionStart = textBox2.Text.Length;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(texto))
+                return;
+
+            string textoCapitalizado = CapitalizarTexto(texto);
+
+            if (textoCapitalizado != texto)
+            {
+                textBox1.Text = textoCapitalizado;
+                textBox1.SelectionStart = posicaoCursor;
+            }
         }
 
+        // ===================== APELIDO (textBox2) =====================
+
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            int posicaoCursor = textBox2.SelectionStart;
+            string texto = textBox2.Text;
+
+            if (string.IsNullOrEmpty(texto))
+                return;
+
+            string textoCapitalizado = CapitalizarTexto(texto);
+
+            if (textoCapitalizado != texto)
+            {
+                textBox2.Text = textoCapitalizado;
+                textBox2.SelectionStart = posicaoCursor;
+            }
+        }
+
+        // ===================== MOSTRAR/OCULTAR SENHA =====================
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (guna2TextBox5.PasswordChar == '*')
+            {
+                guna2TextBox5.PasswordChar = '\0'; // mostra a senha
+                button1.Text = "";
+            }
+            else
+            {
+                guna2TextBox5.PasswordChar = '*'; // volta a ocultar
+                button1.Text = "";
+            }
+        }
+
+        private void guna2ComboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
         {
 
         }

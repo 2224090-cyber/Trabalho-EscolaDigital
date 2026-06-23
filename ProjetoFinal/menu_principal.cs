@@ -18,6 +18,8 @@ namespace Horazon_Bank__projetoFinal
             InitializeComponent();
         }
 
+
+
         public void AtualizarSaldo()
         {
             label2.Text = $"Saldo: {Conta.Saldo:C}";
@@ -40,9 +42,6 @@ namespace Horazon_Bank__projetoFinal
 
             label2.Text = sb.ToString();
         }
-
-        
-
         private void FormPoupanca_Load(object sender, EventArgs e)
         {
             AtualizarPoupanca();

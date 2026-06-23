@@ -42,7 +42,6 @@ C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _pro
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Poupanca.resources
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Properties.Resources.resources
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Trasfere.resources
-C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacão_de_conta.resources
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.GenerateResource.cache
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.CoreCompileInputs.cache
 C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_.4009B234.Up2Date
@@ -66,8 +65,87 @@ C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__proj
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Poupanca.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Properties.Resources.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Trasfere.resources
-C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacão_de_conta.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.GenerateResource.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.CoreCompileInputs.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_.4009B234.Up2Date
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.perfil.resources
+C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.perfil.resources
+C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacao_de_conta.resources
+C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.alterar_senha.resources
+C:\Users\Felipe\OneDrive - Escola Digital\Ambiente de Trabalho\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.confirmar_senha.resources
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.alterar_senha.resources
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.confirmar_senha.resources
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.verificacao_de_conta.resources
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.Cryptography.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.TimeProvider.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.Extensions.Abstractions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.Internal.Logging.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Buffers.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.IO.Pipelines.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Memory.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Security.Cryptography.Pkcs.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Text.Json.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Threading.Channels.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.Cryptography.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Bcl.TimeProvider.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.Extensions.Abstractions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Data.SqlClient.Internal.Logging.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Abstractions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Buffers.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.IO.Pipelines.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Memory.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Security.Cryptography.Pkcs.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Text.Json.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Threading.Channels.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll

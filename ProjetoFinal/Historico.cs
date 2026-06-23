@@ -64,5 +64,12 @@ namespace Horazon_Bank__projetoFinal
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Conta.LimparHistorico();
+
+        }
     }
 }

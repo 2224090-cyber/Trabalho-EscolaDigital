@@ -59,7 +59,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(502, 310);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(541, 93);
+            this.label1.Size = new System.Drawing.Size(549, 96);
             this.label1.TabIndex = 5;
             this.label1.Text = "Horizon Bank";
             // 
@@ -71,6 +71,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Loading";
             this.Text = "Loading";
             this.Load += new System.EventHandler(this.Loading_Load);

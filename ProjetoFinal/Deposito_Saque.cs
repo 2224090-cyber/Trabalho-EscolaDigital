@@ -85,5 +85,10 @@ namespace Horazon_Bank__projetoFinal
 
             textBox2.Clear();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

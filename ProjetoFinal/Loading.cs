@@ -41,7 +41,7 @@ namespace Horazon_Bank__projetoFinal
             menuPrincipal.StartPosition = FormStartPosition.Manual;
             menuPrincipal.Location = this.Location;
 
-            menuPrincipal.Show();
+         
 
             this.Hide();
         }
