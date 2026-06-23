@@ -8,8 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
+using System.Data.SqlClient;
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -61,17 +60,14 @@ namespace Horazon_Bank__projetoFinal
             guna2ComboBox4.SelectedIndex = 0;
         }
 
-        // Validar se o texto tem apenas letras (sem números)
         private bool ValidarNomeApelido(string texto)
         {
             if (string.IsNullOrWhiteSpace(texto))
                 return false;
 
-            // Permitir apenas letras e espaços
             return Regex.IsMatch(texto, @"^[a-záéíóúàâãôõçñA-ZÁÉÍÓÚÀÂÃÔÕÇÑ\s]+$");
         }
 
-        // Validar email
         private bool ValidarEmail(string email)
         {
             try
@@ -85,7 +81,6 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // Validar se a data é válida para o mês selecionado
         private bool ValidarData(int dia, int mes, int ano)
         {
             if (dia < 1 || mes < 1 || mes > 12 || ano < 1915)
@@ -93,14 +88,12 @@ namespace Horazon_Bank__projetoFinal
 
             int[] diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-            // Verificar ano bissexto
             if (mes == 2 && ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)))
                 return dia <= 29;
 
             return dia <= diasPorMes[mes - 1];
         }
 
-        // Calcular idade a partir da data de nascimento
         private int CalcularIdade(int dia, int mes, int ano)
         {
             DateTime dataNascimento = new DateTime(ano, mes, dia);
@@ -113,8 +106,6 @@ namespace Horazon_Bank__projetoFinal
 
             return idade;
         }
-
-        // ===================== CAPITALIZAÇÃO DE TEXTO =====================
 
         private string CapitalizarTexto(string texto)
         {
@@ -135,185 +126,123 @@ namespace Horazon_Bank__projetoFinal
             return string.Join(" ", palavras);
         }
 
-        // ===================== CLIQUES (vazios / utilitários) =====================
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label_ForcaSenha_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        // ===================== CRIAR CONTA =====================
-
+        // =========================================================================
+        // --- BOTÃO: AVANÇAR / SOLICITAR ENVIAR CÓDIGO ---
+        // =========================================================================
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            // Validar Nome
+            // Validações de Interface Básicas
             if (!ValidarNomeApelido(textBox1.Text))
             {
-                MessageBox.Show("Nome inválido. Use apenas letras (sem números).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nome inválido. Use apenas letras.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
                 return;
             }
 
-            // Validar Apelido
             if (!ValidarNomeApelido(textBox2.Text))
             {
-                MessageBox.Show("Apelido inválido. Use apenas letras (sem números).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Apelido inválido. Use apenas letras.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
                 return;
             }
 
-            // Validar Dia
-            if (guna2ComboBox1.SelectedIndex == 0)
+            if (guna2ComboBox1.SelectedIndex == 0 || guna2ComboBox2.SelectedIndex == 0 || guna2ComboBox3.SelectedIndex == 0 || guna2ComboBox4.SelectedIndex == 0)
             {
-                MessageBox.Show("Selecione um dia válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2ComboBox1.Focus();
+                MessageBox.Show("Preencha todos os campos de data e gênero corretamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validar Mês
-            if (guna2ComboBox2.SelectedIndex == 0)
-            {
-                MessageBox.Show("Selecione um mês válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2ComboBox2.Focus();
-                return;
-            }
-
-            // Validar Ano
-            if (guna2ComboBox3.SelectedIndex == 0)
-            {
-                MessageBox.Show("Selecione um ano válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2ComboBox3.Focus();
-                return;
-            }
-
-            // Validar Gênero
-            if (guna2ComboBox4.SelectedIndex == 0)
-            {
-                MessageBox.Show("Selecione um gênero.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2ComboBox4.Focus();
-                return;
-            }
-
-            // Obter valores
             int dia = int.Parse(guna2ComboBox1.SelectedItem.ToString());
-            int mes = guna2ComboBox2.SelectedIndex; // 1-12
+            int mes = guna2ComboBox2.SelectedIndex;
             int ano = int.Parse(guna2ComboBox3.SelectedItem.ToString());
 
-            // Validar se a data é válida para o mês
             if (!ValidarData(dia, mes, ano))
             {
-                MessageBox.Show($"Data inválida. O mês {guna2ComboBox2.SelectedItem} não tem {dia} dias.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2ComboBox1.Focus();
+                MessageBox.Show($"Data inválida. O mês {guna2ComboBox2.SelectedItem} não possui {dia} dias.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validar idade mínima (18 anos)
-            int idade = CalcularIdade(dia, mes, ano);
-
-            if (idade < 18)
+            if (CalcularIdade(dia, mes, ano) < 18)
             {
-                MessageBox.Show(
-                    "É necessário ter no mínimo 18 anos para criar uma conta no Horizon Bank.\nO programa será encerrado.",
-                    "Idade Insuficiente",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                Application.Exit();
+                MessageBox.Show("É necessário ter no mínimo 18 anos para criar uma conta.", "Idade Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validar Email
             if (!ValidarEmail(guna2TextBox4.Text))
             {
-                MessageBox.Show("Email inválido. Insira um email válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Email inválido. Insira um email estruturado corretamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 guna2TextBox4.Focus();
                 return;
             }
 
-            // Validar Senha
-            if (string.IsNullOrWhiteSpace(guna2TextBox5.Text))
+            if (string.IsNullOrWhiteSpace(guna2TextBox5.Text) || guna2TextBox5.Text.Length < 6)
             {
-                MessageBox.Show("A senha é obrigatória.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A senha deve possuir no mínimo 6 caracteres.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 guna2TextBox5.Focus();
                 return;
             }
 
-            if (guna2TextBox5.Text.Length < 6)
+            // --- SEGURANÇA: VERIFICAR SE O EMAIL JÁ EXISTE NO SQL ---
+            using (SqlConnection conexao = Database.GetConnection())
             {
-                MessageBox.Show("A senha deve ter no mínimo 6 caracteres.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                guna2TextBox5.Focus();
-                return;
+                try
+                {
+                    conexao.Open();
+                    string queryVerificar = "SELECT COUNT(1) FROM Utilizadores WHERE Email = @Email";
+                    using (SqlCommand cmd = new SqlCommand(queryVerificar, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", guna2TextBox4.Text.Trim());
+                        int existe = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (existe > 0)
+                        {
+                            MessageBox.Show("Este endereço de email já se encontra registado no sistema.", "Email Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            guna2TextBox4.Focus();
+                            return;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao validar credenciais na base de dados: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
-
-        
-
+            // --- PROCESSO DE ENVIO DE EMAIL ---
             Conta.CodigoVerificacao = Conta.GerarCodigoVerificacao();
 
             email emailBanco = new email(
                 "smtp.gmail.com",
                 587,
-                "Horizonbank.f1@gmail.com",      // <-- email do banco
-                "liog nhuo xddf jpwk"            // <-- senha de app do Gmail
+                "Horizonbank.f1@gmail.com",
+                "liog nhuo xddf jpwk"
             );
 
             bool enviado = emailBanco.EnviarCodigoVerificacao(guna2TextBox4.Text, Conta.CodigoVerificacao);
 
             if (!enviado)
             {
-                MessageBox.Show("Não foi possível enviar o código de verificação. Verifique o email e tente novamente.",
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Não foi possível enviar o código de verificação. Verifique a sua conexão.", "Erro SMTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            this.Hide();
-            using (var verificacão_De_Cont = new verificacao_de_conta())
-            {
-                verificacão_De_Cont.ShowDialog();
-            }
-
-            // Só guarda os dados da conta DEPOIS da verificação ser bem-sucedida
-            // (ver nota abaixo sobre mover isto para dentro do verificacao_de_conta)
+            // Aloca temporariamente os dados na RAM (Classe Estática)
             Conta.Nome = textBox1.Text;
             Conta.Apelido = textBox2.Text;
-            Conta.Dia = int.Parse(guna2ComboBox1.SelectedItem.ToString());
-            Conta.Mes = guna2ComboBox2.SelectedIndex;
-            Conta.Ano = int.Parse(guna2ComboBox3.SelectedItem.ToString());
-            Conta.Email = guna2TextBox4.Text;
+            Conta.Dia = dia;
+            Conta.Mes = mes;
+            Conta.Ano = ano;
+            Conta.Email = guna2TextBox4.Text.Trim();
             Conta.Senha = guna2TextBox5.Text;
-            Conta.Id = Conta.GerarId();
+            Conta.Id = Conta.GerarId(); // Gera um número de conta/Id único aleatório
 
+            // Abre a tela de verificação de token
             this.Hide();
-            using (var menuPrincipal = new menu_principal())
+            using (var verificacaoForm = new verificacao_de_conta())
             {
-                menuPrincipal.ShowDialog();
+                verificacaoForm.ShowDialog();
             }
-
-
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -325,10 +254,6 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void criar_conta_Load(object sender, EventArgs e)
         {
             PreencherComboBoxes();
@@ -336,14 +261,11 @@ namespace Horazon_Bank__projetoFinal
             button1.Text = "Mostrar";
         }
 
-        // ===================== NOME (textBox1) =====================
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             int posicaoCursor = textBox1.SelectionStart;
             string texto = textBox1.Text;
 
-            // Se o utilizador digitou um espaço, remove-o e salta para o apelido
             if (texto.EndsWith(" "))
             {
                 textBox1.Text = texto.TrimEnd();
@@ -352,11 +274,9 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            if (string.IsNullOrEmpty(texto))
-                return;
+            if (string.IsNullOrEmpty(texto)) return;
 
             string textoCapitalizado = CapitalizarTexto(texto);
-
             if (textoCapitalizado != texto)
             {
                 textBox1.Text = textoCapitalizado;
@@ -364,18 +284,14 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ===================== APELIDO (textBox2) =====================
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             int posicaoCursor = textBox2.SelectionStart;
             string texto = textBox2.Text;
 
-            if (string.IsNullOrEmpty(texto))
-                return;
+            if (string.IsNullOrEmpty(texto)) return;
 
             string textoCapitalizado = CapitalizarTexto(texto);
-
             if (textoCapitalizado != texto)
             {
                 textBox2.Text = textoCapitalizado;
@@ -383,30 +299,28 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ===================== MOSTRAR/OCULTAR SENHA =====================
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (guna2TextBox5.PasswordChar == '*')
             {
-                guna2TextBox5.PasswordChar = '\0'; // mostra a senha
-                button1.Text = "";
+                guna2TextBox5.PasswordChar = '\0';
             }
             else
             {
-                guna2TextBox5.PasswordChar = '*'; // volta a ocultar
-                button1.Text = "";
+                guna2TextBox5.PasswordChar = '*';
             }
         }
 
-        private void guna2ComboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        private void button3_Click(object sender, EventArgs e) => Application.Exit();
+        private void label3_Click(object sender, EventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void pictureBox2_Click(object sender, EventArgs e) { }
+        private void label_ForcaSenha_Click(object sender, EventArgs e) { }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
+        private void guna2ComboBox4_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void label3_Click_1(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
     }
 }

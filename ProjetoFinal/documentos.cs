@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient; // Adicionado para suportar os comandos do SQL Server
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -35,17 +35,13 @@ namespace Horazon_Bank__projetoFinal
             if (string.IsNullOrWhiteSpace(cartao))
                 return false;
 
-            // Remover espaços
-            string cartaoLimpo = cartao.Replace(" ", "").ToUpper();
+            string cartaoLimpo = cartao.Replace(" ", "").Trim().ToUpper();
 
-            // Formato: 8 dígitos + 2 letras (total 10 caracteres)
             if (!Regex.IsMatch(cartaoLimpo, @"^\d{8}[A-Z]{2}$"))
                 return false;
 
-            // Extrair só a parte numérica (os primeiros 8 dígitos)
             string parteNumerica = cartaoLimpo.Substring(0, 8);
 
-            // Rejeitar sequências óbvias
             if (ContemSequenciaObvia(parteNumerica))
                 return false;
 
@@ -58,9 +54,9 @@ namespace Horazon_Bank__projetoFinal
             if (string.IsNullOrWhiteSpace(passaporte))
                 return false;
 
-            // Passaporte: 1-2 letras + 6-7 números
-            // Exemplo: AB123456 ou A1234567
-            return Regex.IsMatch(passaporte, @"^[A-Z]{1,2}\d{6,7}$");
+            string passaporteLimpo = passaporte.Replace(" ", "").Trim().ToUpper();
+
+            return Regex.IsMatch(passaporteLimpo, @"^[A-Z]{1,2}\d{6,7}$");
         }
 
         // Validar NIF - Número de Identificação Fiscal (9 dígitos)
@@ -69,33 +65,31 @@ namespace Horazon_Bank__projetoFinal
             if (string.IsNullOrWhiteSpace(nif))
                 return false;
 
-            // NIF deve ter 9 dígitos
-            if (!Regex.IsMatch(nif, @"^\d{9}$"))
+            string nifLimpo = nif.Trim();
+
+            if (!Regex.IsMatch(nifLimpo, @"^\d{9}$"))
                 return false;
 
-            // NIF português começa com: 1, 2, 5, 6, 8 ou 9
-            char primeiroDigito = nif[0];
+            char primeiroDigito = nifLimpo[0];
             bool prefixoValido = primeiroDigito == '1' || primeiroDigito == '2' ||
-                                  primeiroDigito == '5' || primeiroDigito == '6' ||
-                                  primeiroDigito == '8' || primeiroDigito == '9';
+                                 primeiroDigito == '5' || primeiroDigito == '6' ||
+                                 primeiroDigito == '8' || primeiroDigito == '9';
 
             if (!prefixoValido)
                 return false;
 
-            // Rejeitar sequências óbvias
-            if (ContemSequenciaObvia(nif))
+            if (ContemSequenciaObvia(nifLimpo))
                 return false;
 
             return true;
         }
 
-        // Verifica se uma string de dígitos é uma sequência óbvia (crescente, decrescente ou repetida)
+        // Verifica se uma string de dígitos é uma sequência óbvia
         private bool ContemSequenciaObvia(string digitos)
         {
             if (string.IsNullOrWhiteSpace(digitos) || digitos.Length < 3)
                 return false;
 
-            // Verifica sequência crescente (ex: 12345678, 123456789)
             bool sequenciaCrescente = true;
             for (int i = 0; i < digitos.Length - 1; i++)
             {
@@ -112,7 +106,6 @@ namespace Horazon_Bank__projetoFinal
             if (sequenciaCrescente)
                 return true;
 
-            // Verifica sequência decrescente (ex: 87654321, 987654321)
             bool sequenciaDecrescente = true;
             for (int i = 0; i < digitos.Length - 1; i++)
             {
@@ -129,13 +122,7 @@ namespace Horazon_Bank__projetoFinal
             if (sequenciaDecrescente)
                 return true;
 
-            // Verifica se todos os dígitos são iguais (ex: 11111111, 999999999)
-            bool todosIguais = digitos.All(c => c == digitos[0]);
-
-            if (todosIguais)
-                return true;
-
-            return false;
+            return digitos.All(c => c == digitos[0]);
         }
 
         // Validar Morada
@@ -144,8 +131,7 @@ namespace Horazon_Bank__projetoFinal
             if (string.IsNullOrWhiteSpace(morada))
                 return false;
 
-            // Morada deve ter pelo menos 10 caracteres
-            return morada.Length >= 10;
+            return morada.Trim().Length >= 10;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -154,7 +140,7 @@ namespace Horazon_Bank__projetoFinal
             string nif = textBox2.Text.Trim();
             string morada = textBox3.Text.Trim();
 
-            // ===== VALIDAR CARTÃO DE CIDADÃO =====
+            // ===== VALIDAR CARTÃO DE CIDADÃO / PASSAPORTE =====
             if (string.IsNullOrWhiteSpace(cartao))
             {
                 MessageBox.Show("Cartão de Cidadão ou Passaporte é obrigatório.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -181,8 +167,8 @@ namespace Horazon_Bank__projetoFinal
             {
                 MessageBox.Show(
                     "NIF inválido.\n\n" +
-                    "O NIF deve ter 9 dígitos, começar com 1, 2, 5, 6, 8 ou 9,\n" +
-                    "e não pode ser uma sequência óbvia (ex: 123456789).\n" +
+                    "O NIF deve ter 9 dígitos,\n" +
+                    "e não pode ser uma sequência óbvia.\n" +
                     "Exemplo: 245678912",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox2.Focus();
@@ -194,19 +180,68 @@ namespace Horazon_Bank__projetoFinal
             {
                 MessageBox.Show(
                     "Morada inválida.\n\n" +
-                    "A morada deve ter pelo menos 10 caracteres.\n" +
-                    "Exemplo: Rua da Paz, nº 10, 1000-001 Lisboa",
+                    "A morada deve ter pelo menos 10 caracteres.",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox3.Focus();
                 return;
             }
 
-            // ===== TUDO VÁLIDO - GUARDAR NA CLASSE ESTÁTICA =====
-            Conta.CartaoCidadaoPassaporte = cartao.Replace(" ", "").ToUpper();
+            // Formatar os valores finais
+            string documentoFormatado = cartao.Replace(" ", "").ToUpper();
+
+            // ===== SALVAR NA SESSÃO LOCAL (MEMÓRIA RAM) =====
+            Conta.CartaoCidadaoPassaporte = documentoFormatado;
             Conta.NIF = nif;
             Conta.Morada = morada;
 
-            // Abrir Loading
+            // ===== CONEXÃO E ATUALIZAÇÃO NA BASE DE DADOS (SQL SERVER) =====
+            // Define qual e-mail usar (o recebido pelo construtor ou o da classe Conta)
+            string emailAlvo = !string.IsNullOrEmpty(Conta.Email) ? Conta.Email : emailUsuario;
+
+            if (string.IsNullOrEmpty(emailAlvo))
+            {
+                MessageBox.Show("Erro do Sistema: Identificação do utilizador (E-mail) não encontrada.", "Erro Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection conexao = Database.GetConnection())
+            {
+                try
+                {
+                    conexao.Open(); // Abre fisicamente a ligação ao banco HorizonBank
+
+                    // Query SQL correspondente exatamente às colunas criadas no teu banco
+                    string queryUpdate = @"UPDATE Utilizadores 
+                                   SET CartaoCidadao = @Cartao, 
+                                       NIF = @NIF, 
+                                       Morada = @Morada 
+                                   WHERE Email = @Email";
+
+                    using (SqlCommand cmd = new SqlCommand(queryUpdate, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@Cartao", documentoFormatado);
+                        cmd.Parameters.AddWithValue("@NIF", nif);
+                        cmd.Parameters.AddWithValue("@Morada", morada);
+                        cmd.Parameters.AddWithValue("@Email", emailAlvo);
+
+                        int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                        // Se nenhuma linha foi afetada, significa que o utilizador ainda não existe na tabela
+                        if (linhasAfetadas == 0)
+                        {
+                            // Se o teu plano for criar a conta apenas no Loading, ignora este aviso e retira o bloco SQL daqui
+                            MessageBox.Show("Aviso: O registo base do utilizador ainda não existe no SQL Server. Os dados foram guardados na memória temporária.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro de Conexão com o SQL Server: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Interrompe e impede o avanço se a ligação falhar de forma inesperada
+                }
+            }
+
+            // Avançar para o ecrã de Loading
             this.Hide();
             using (var Loading = new Loading())
             {
@@ -225,7 +260,6 @@ namespace Horazon_Bank__projetoFinal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // Converter para maiúsculas automaticamente
             if (textBox1.Text.Length > 0)
             {
                 int cursorPos = textBox1.SelectionStart;
@@ -236,7 +270,6 @@ namespace Horazon_Bank__projetoFinal
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            // Permitir apenas números
             string text = textBox2.Text;
             string cleaned = Regex.Replace(text, @"[^\d]", "");
 
@@ -246,7 +279,6 @@ namespace Horazon_Bank__projetoFinal
                 textBox2.SelectionStart = cleaned.Length;
             }
 
-            // Limitar a 9 dígitos
             if (textBox2.Text.Length > 9)
             {
                 textBox2.Text = textBox2.Text.Substring(0, 9);

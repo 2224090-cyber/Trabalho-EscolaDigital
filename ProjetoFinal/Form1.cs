@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Horazon_Bank__projetoFinal
@@ -37,32 +38,70 @@ namespace Horazon_Bank__projetoFinal
             string emailDigitado = textBox1.Text.Trim();
             string senhaDigitada = textBox2.Text;
 
-            // Validar campos vazios
+            // 1. Validar campos vazios (Front-end)
             if (string.IsNullOrWhiteSpace(emailDigitado) || string.IsNullOrWhiteSpace(senhaDigitada))
             {
                 MessageBox.Show("Preencha o email e a senha.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Verificar se existe alguma conta criada
-            if (string.IsNullOrEmpty(Conta.Email))
+            // 2. Ligar à Base de Dados para validar as credenciais
+            using (SqlConnection conexao = Database.GetConnection())
             {
-                MessageBox.Show("Nenhuma conta encontrada. Crie uma conta primeiro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                try
+                {
+                    conexao.Open();
 
-            // Comparar email e senha com os dados guardados
-            if (emailDigitado != Conta.Email || senhaDigitada != Conta.Senha)
-            {
-                MessageBox.Show("Email ou senha incorretos.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                    // ✅ ALTERADO: Mudamos 'SenhaHash' para 'Senha' para bater certo com a tua tabela
+                    string query = "SELECT Id, Senha FROM Utilizadores WHERE Email = @Email";
 
-            // Login correto
-            this.Hide();
-            using (var menu_principal = new menu_principal())
-            {
-                menu_principal.ShowDialog();
+                    using (SqlCommand comando = new SqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Email", emailDigitado);
+
+                        using (SqlDataReader leitor = comando.ExecuteReader())
+                        {
+                            // Caso o email NÃO exista na base de dados
+                            if (!leitor.Read())
+                            {
+                                MessageBox.Show("O email introduzido não se encontra registado.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            // ✅ ALTERADO: Lemos a coluna 'Senha' que vem da base de dados
+                            string senhaBanco = leitor["Senha"].ToString();
+
+                            // Tratamento seguro para converter o ID (evita erros caso o ID seja armazenado como string grande)
+                            string utilizadorId = leitor["Id"].ToString();
+
+                            // Caso a senha esteja incorreta
+                            if (senhaDigitada != senhaBanco)
+                            {
+                                MessageBox.Show("Senha incorreta. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            // Se chegou aqui, os dados estão corretos! 
+                            MessageBox.Show("Login efetuado com sucesso!", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Aloca o ID e Email na classe global Conta para o menu saber quem entrou
+                            Conta.Id = utilizadorId;
+                            Conta.Email = emailDigitado;
+
+                            // Abrir o Menu Principal
+                            this.Hide();
+                            using (var menuPrincipalForm = new menu_principal())
+                            {
+                                menuPrincipalForm.ShowDialog();
+                            }
+                            this.Show(); // Mostra o login novamente se o menu principal fechar
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao ligar ao servidor: " + ex.Message, "Erro Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

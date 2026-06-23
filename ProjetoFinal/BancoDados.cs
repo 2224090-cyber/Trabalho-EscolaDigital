@@ -11,7 +11,7 @@ namespace Horazon_Bank__projetoFinal
     public static class Database
     {
         // Mantemos a string numa única linha para evitar erros de espaços em branco ocultos
-        public static readonly string ConnectionString = "Server=.\\SQLEXPRESS;Database=HorizonBank;Trusted_Connection=True;TrustServerCertificate=True;";
+        public static readonly string ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=HorizonBank;Trusted_Connection=True;TrustServerCertificate=True;";
 
         /// <summary>
         /// Método utilitário que cria e devolve uma conexão pronta a usar.

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -23,6 +24,7 @@ namespace Horazon_Bank__projetoFinal
             textBox2.PasswordChar = '*';
         }
 
+        // ===================== BOTÃO 1: ATUALIZAR SENHA NO BANCO =====================
         private void button1_Click(object sender, EventArgs e)
         {
             string novaSenha = textBox1.Text;
@@ -48,7 +50,36 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Atualiza a senha da conta
+            // ✅ NOVO: Atualizar a senha diretamente no SQL Server usando o ID como String
+            string query = "UPDATE Utilizadores SET Senha = @Senha WHERE Id = @Id";
+
+            try
+            {
+                using (SqlConnection conexao = Database.GetConnection())
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Senha", novaSenha);
+                        comando.Parameters.AddWithValue("@Id", Conta.Id); // Conta.Id tratado corretamente como string
+
+                        conexao.Open();
+                        int linhasAfetadas = comando.ExecuteNonQuery();
+
+                        if (linhasAfetadas == 0)
+                        {
+                            MessageBox.Show("Não foi possível encontrar a sua conta para atualizar a senha.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar a senha na Base de Dados: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Atualiza também na memória local por segurança
             Conta.Senha = novaSenha;
 
             MessageBox.Show("Senha alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -62,11 +93,11 @@ namespace Horazon_Bank__projetoFinal
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
-        }
+        private void textBox2_TextChanged(object sender, EventArgs e) { }
 
+        // ===================== BOTÃO 3: CANCELAR / VOLTAR =====================
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -74,42 +105,32 @@ namespace Horazon_Bank__projetoFinal
             {
                 Form1.ShowDialog();
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
 
         // ===================== MOSTRAR/OCULTAR NOVA SENHA (textBox1) =====================
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.PasswordChar == '*')
             {
                 textBox1.PasswordChar = '\0'; // mostra a senha
-                button2.Text = "";
             }
             else
             {
                 textBox1.PasswordChar = '*'; // volta a ocultar
-                button2.Text = "";
             }
         }
 
         // ===================== MOSTRAR/OCULTAR CONFIRMAR SENHA (textBox2) =====================
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (textBox2.PasswordChar == '*')
             {
                 textBox2.PasswordChar = '\0'; // mostra a senha
-                button4.Text = "";
             }
             else
             {
                 textBox2.PasswordChar = '*'; // volta a ocultar
-                button4.Text = "";
             }
         }
     }
