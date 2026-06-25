@@ -1,6 +1,6 @@
 ﻿namespace Horazon_Bank__projetoFinal
 {
-    partial class Trasfere
+    partial class Transferir
     {
         /// <summary>
         /// Required designer variable.
@@ -42,9 +42,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(381, 9);
+            this.label1.Location = new System.Drawing.Point(377, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 78);
+            this.label1.Size = new System.Drawing.Size(317, 76);
             this.label1.TabIndex = 2;
             this.label1.Text = "Transferir";
             // 
@@ -54,16 +54,16 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 393);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(401, 39);
+            this.label2.Size = new System.Drawing.Size(468, 78);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Digite o valor do deposito";
+            this.label2.Text = "Digite o valor da transferência\r\n\r\n";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 198);
+            this.label3.Location = new System.Drawing.Point(26, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(507, 39);
             this.label3.TabIndex = 4;
@@ -73,44 +73,45 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(33, 265);
+            this.radioButton1.Location = new System.Drawing.Point(43, 263);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(105, 35);
+            this.radioButton1.Size = new System.Drawing.Size(60, 35);
             this.radioButton1.TabIndex = 5;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "e-mail";
+            this.radioButton1.Text = "ID";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(312, 265);
+            this.radioButton2.Location = new System.Drawing.Point(380, 263);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(178, 35);
+            this.radioButton2.Size = new System.Drawing.Size(105, 35);
             this.radioButton2.TabIndex = 6;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Id de cliente";
+            this.radioButton2.Text = "e-mail";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(33, 322);
+            this.textBox1.Location = new System.Drawing.Point(33, 319);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(457, 38);
+            this.textBox1.Size = new System.Drawing.Size(452, 38);
             this.textBox1.TabIndex = 8;
             // 
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(43, 459);
+            this.textBox2.Location = new System.Drawing.Point(33, 454);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(457, 38);
+            this.textBox2.Size = new System.Drawing.Size(452, 38);
             this.textBox2.TabIndex = 9;
             // 
             // button1
@@ -123,18 +124,19 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(33, 526);
+            this.button1.Location = new System.Drawing.Point(33, 521);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(457, 75);
+            this.button1.Size = new System.Drawing.Size(452, 74);
             this.button1.TabIndex = 10;
             this.button1.Text = "Transferir";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Trasfere
+            // Transferir
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(97F, 97F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1146, 729);
+            this.ClientSize = new System.Drawing.Size(1134, 721);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -144,7 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Trasfere";
+            this.Name = "Transferir";
             this.Text = "Trasfere";
             this.ResumeLayout(false);
             this.PerformLayout();

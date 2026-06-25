@@ -64,7 +64,6 @@ C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__proj
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.menu_principal.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Poupanca.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Properties.Resources.resources
-C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Trasfere.resources
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.GenerateResource.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank _projetoFinal.csproj.CoreCompileInputs.cache
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_.4009B234.Up2Date
@@ -149,3 +148,4 @@ C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\ru\Microsoft.Data.
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\tr\Microsoft.Data.SqlClient.resources.dll
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\2224090\Desktop\Horazon_Bank _projetoFinal\obj\Debug\Horazon_Bank__projetoFinal.Transferir.resources

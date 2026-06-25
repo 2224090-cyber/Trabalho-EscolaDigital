@@ -137,7 +137,7 @@ namespace Horazon_Bank__projetoFinal
         private void button3_Click(object sender, EventArgs e)
         {
             ActiveButton(button3);
-            FormShow(new Trasfere());
+            FormShow(new Transferir());
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -89,7 +89,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(920, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 34);
+            this.label1.Size = new System.Drawing.Size(183, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Horizon Bank";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -99,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(834, 218);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 19);
+            this.label2.Size = new System.Drawing.Size(166, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Faça login na sua conta";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -123,6 +123,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 27);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label3
             // 

@@ -76,27 +76,46 @@ namespace Horazon_Bank__projetoFinal
         private void label7_Click(object sender, EventArgs e) { }
 
         // ==========================================================
-        // --- BUTTON 1: FAZER LOG OUT (VOLTAR PARA O LOGIN) ---
+        // --- BUTTON 1: FAZER LOG OUT (CORRIGIDO COM LIMPEZA) ---
         // ==========================================================
         private void button1_Click(object sender, EventArgs e)
         {
-            // ✅ CORREÇÃO: Fecha TODOS os formulários abertos na aplicação (incluindo o menu_principal)
+            // 1. Limpeza de segurança dos dados na memória RAM ao sair
+            Conta.Email = "";
+            Conta.LimparHistorico();
+
+            // 2. Procura se o Form1 original (oculto) já existe na memória
+            Form formLoginOriginal = Application.OpenForms["Form1"];
+
+            // 3. Fecha todos os outros formulários abertos (Menu Principal, Perfil, etc.)
             List<Form> formulariosAbertos = Application.OpenForms.Cast<Form>().ToList();
             foreach (Form frm in formulariosAbertos)
             {
-                if (frm.Name != "Form1") // Fecha tudo o que NÃO for o ecrã de Login
+                if (frm.Name != "Form1")
                 {
-                    frm.Hide(); // Esconde primeiro para não dar piscar de ecrã
+                    frm.Hide();
                     frm.Close();
                 }
             }
 
-            // Limpeza básica de segurança ao sair
-            Conta.Email = "";
+            // 4. Se o Form1 original existir, limpa os campos e mostra-o
+            if (formLoginOriginal != null)
+            {
+                // ⚠️ Substitua "txtEmail" e "txtSenha" pelos nomes reais das suas TextBox no Form1
+                var txtEmail = formLoginOriginal.Controls.Find("txtEmail", true).FirstOrDefault() as TextBox;
+                var txtSenha = formLoginOriginal.Controls.Find("txtSenha", true).FirstOrDefault() as TextBox;
 
-            // ✅ Abre o Login de forma limpa e isolada
-            Form1 login = new Form1();
-            login.Show();
+                if (txtEmail != null) txtEmail.Text = "";
+                if (txtSenha != null) txtSenha.Text = "";
+
+                formLoginOriginal.Show();
+            }
+            else
+            {
+                // Caso o Form1 não exista por alguma razão, cria um novo (já vem limpo)
+                Form1 novoLogin = new Form1();
+                novoLogin.Show();
+            }
         }
 
         // ==========================================================

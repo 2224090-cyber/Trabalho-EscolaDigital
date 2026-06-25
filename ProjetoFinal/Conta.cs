@@ -95,9 +95,40 @@ namespace Horazon_Bank__projetoFinal
         // --- MÉTODOS DE HISTÓRICO ---
         public static List<string> Historico = new List<string>();
 
+        // ✅ MODIFICADO: Agora grava diretamente na Base de Dados e depois avisa a interface
         public static void AdicionarHistorico(string texto)
         {
-            Historico.Add($"[{DateTime.Now:dd/MM/yyyy HH:mm}] {texto}");
+            string linhaFormatada = $"[{DateTime.Now:dd/MM/yyyy HH:mm}] {texto}";
+
+            // 1. Adiciona na memória RAM local
+            Historico.Add(linhaFormatada);
+
+            // 2. Grava automaticamente na tabela do SQL Server
+            if (!string.IsNullOrEmpty(Id))
+            {
+                try
+                {
+                    using (SqlConnection conexao = Database.GetConnection())
+                    {
+                        conexao.Open();
+                        string query = "INSERT INTO HistoricoTransacoes (UsuarioId, Texto) VALUES (@UsuarioId, @Texto)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conexao))
+                        {
+                            cmd.Parameters.AddWithValue("@UsuarioId", Id);
+                            cmd.Parameters.AddWithValue("@Texto", linhaFormatada);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Regista o erro internamente caso a gravação falhe por falha de rede ou servidor
+                    System.Diagnostics.Debug.WriteLine("Erro ao gravar transação no SQL: " + ex.Message);
+                }
+            }
+
+            // 3. Notifica os formulários abertos para redesenharem o ecrã
             ValoresAlterados?.Invoke();
         }
 

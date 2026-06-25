@@ -8,19 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Adicionado para suportar comandos SQL Server
-
-using Horazon_Bank__projetoFinal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SqlClient; // Suporte comandos SQL Server
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -82,8 +70,6 @@ namespace Horazon_Bank__projetoFinal
             }
             else
             {
-                // ✅ MODIFICADO: Se não houver empréstimo ativo, mantém o texto que o botão 1 gerou.
-                // Só limpa se o Saldo Devedor for realmente zero.
                 if (Conta.SaldoDevedor <= 0)
                 {
                     label6.Text = "";
@@ -181,21 +167,12 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            decimal juros;
+            decimal juros = poupanca >= 10000 ? 0.05m : poupanca >= 5000 ? 0.10m : 0.15m;
 
-            if (poupanca >= 10000)
-                juros = 0.05m;
-            else if (poupanca >= 5000)
-                juros = 0.10m;
-            else
-                juros = 0.15m;
-
-            // Cálculos
             decimal valorTotal = valorEmprestimo + (valorEmprestimo * juros);
             Conta.ParcelaMensal = valorTotal / prazo;
             Conta.SaldoDevedor = valorTotal;
 
-            // ✅ CORREÇÃO: Força a atualização do texto do ecrã no exato momento do clique
             label7.Text =
                 $"Total a pagar: {Conta.SaldoDevedor:C}\n" +
                 $"Parcela mensal: {Conta.ParcelaMensal:C}";
@@ -204,88 +181,86 @@ namespace Horazon_Bank__projetoFinal
             {
                 Conta.EmprestimoAprovado = true;
                 label8.Text = "Empréstimo APROVADO";
-                label8.ForeColor = Color.Green; // Opcional: Feedback visual positivo
+                label8.ForeColor = Color.Green;
             }
             else
             {
                 Conta.EmprestimoAprovado = false;
                 label8.Text = "Empréstimo NÃO APROVADO";
-                label8.ForeColor = Color.Red; // Opcional: Feedback visual negativo
+                label8.ForeColor = Color.Red;
             }
         }
 
         // ===================== BOTÃO 2: ACEITAR EMPRÉSTIMO =====================
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Conta.SaldoDevedor <= 0)
+            if (Conta.SaldoDevedor <= 0 || !Conta.EmprestimoAprovado || Conta.EmprestimoAtivo)
             {
-                MessageBox.Show("Nenhum empréstimo válido foi calculado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!Conta.EmprestimoAprovado)
-            {
-                MessageBox.Show("Empréstimo não aprovado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (Conta.EmprestimoAtivo)
-            {
-                MessageBox.Show("Já existe um empréstimo ativo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Operação inválida ou empréstimo não aprovado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             decimal valorEmprestimo = decimal.Parse(textBox2.Text);
+            int totalParcelas = int.Parse(textBox4.Text);
 
             using (SqlConnection conexao = Database.GetConnection())
             {
                 try
                 {
                     conexao.Open();
-                    string query = @"UPDATE Utilizadores 
-                                     SET Saldo = Saldo + @ValorEmprestimo, 
-                                         SaldoDevedor = @SaldoDevedor, 
-                                         ParcelaMensal = @ParcelaMensal, 
-                                         EmprestimoAtivo = 1 
-                                     WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(query, conexao))
+                    // 1. Atualiza a tabela Utilizadores (Saldo e Status)
+                    string queryUser = @"UPDATE Utilizadores 
+                                         SET Saldo = Saldo + @ValorEmprestimo, 
+                                             SaldoDevedor = @SaldoDevedor, 
+                                             ParcelaMensal = @ParcelaMensal, 
+                                             EmprestimoAtivo = 1 
+                                         WHERE Id = @Id";
+
+                    using (SqlCommand cmdUser = new SqlCommand(queryUser, conexao))
                     {
-                        comando.Parameters.AddWithValue("@ValorEmprestimo", valorEmprestimo);
-                        comando.Parameters.AddWithValue("@SaldoDevedor", Conta.SaldoDevedor);
-                        comando.Parameters.AddWithValue("@ParcelaMensal", Conta.ParcelaMensal);
-                        comando.Parameters.AddWithValue("@Id", Conta.Id);
-
-                        comando.ExecuteNonQuery();
+                        cmdUser.Parameters.AddWithValue("@ValorEmprestimo", valorEmprestimo);
+                        cmdUser.Parameters.AddWithValue("@SaldoDevedor", Conta.SaldoDevedor);
+                        cmdUser.Parameters.AddWithValue("@ParcelaMensal", Conta.ParcelaMensal);
+                        cmdUser.Parameters.AddWithValue("@Id", Conta.Id);
+                        cmdUser.ExecuteNonQuery();
                     }
 
-                    string queryHist = "INSERT INTO HistoricoTransacoes (UsuarioId, Texto) VALUES (@Id, @Texto)";
-                    using (SqlCommand cmdHist = new SqlCommand(queryHist, conexao))
+                    // ✅ 2. NOVO: Insere o registo detalhado na tabela Emprestimos
+                    string queryEmp = @"INSERT INTO Emprestimos (UsuarioId, ValorSolicitado, ValorDevedor, ParcelaMensal, TotalParcelas, ParcelasPagas, Ativo) 
+                                        VALUES (@UsuarioId, @ValorSolicitado, @ValorDevedor, @ParcelaMensal, @TotalParcelas, 0, 1)";
+
+                    using (SqlCommand cmdEmp = new SqlCommand(queryEmp, conexao))
                     {
-                        cmdHist.Parameters.AddWithValue("@Id", Conta.Id);
-                        cmdHist.Parameters.AddWithValue("@Texto", $"Empréstimo: +{valorEmprestimo:C}");
-                        cmdHist.ExecuteNonQuery();
+                        cmdEmp.Parameters.AddWithValue("@UsuarioId", Conta.Id);
+                        cmdEmp.Parameters.AddWithValue("@ValorSolicitado", valorEmprestimo);
+                        cmdEmp.Parameters.AddWithValue("@ValorDevedor", Conta.SaldoDevedor);
+                        cmdEmp.Parameters.AddWithValue("@ParcelaMensal", Conta.ParcelaMensal);
+                        cmdEmp.Parameters.AddWithValue("@TotalParcelas", totalParcelas);
+                        cmdEmp.ExecuteNonQuery();
                     }
+
+                    // 3. O histórico agora é inserido automaticamente via classe Conta (Método inteligente criado antes)
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao salvar empréstimo no banco de dados: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao salvar dados no banco de dados: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
 
+            // Atualizações na memória local (RAM) e disparo do histórico integrado
             Conta.Saldo += valorEmprestimo;
             Conta.AdicionarHistorico($"Empréstimo: +{valorEmprestimo:C}");
             Conta.EmprestimoAtivo = true;
 
             label6.Text = "Empréstimo Ativo";
-
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox4.Enabled = false;
             button1.Enabled = false;
 
-            MessageBox.Show("Empréstimo aceito com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Empréstimo aceito e registado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             menu_principal main = (menu_principal)Application.OpenForms["menu_principal"];
             if (main != null)
@@ -307,16 +282,9 @@ namespace Horazon_Bank__projetoFinal
             }
 
             decimal pagamento;
-
-            if (!decimal.TryParse(textBox5.Text, out pagamento))
+            if (!decimal.TryParse(textBox5.Text, out pagamento) || pagamento <= 0)
             {
-                MessageBox.Show("Digite um valor válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (pagamento <= 0)
-            {
-                MessageBox.Show("O pagamento deve ser maior que zero.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Digite um valor de pagamento válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -326,14 +294,8 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            decimal pagamentoReal = pagamento;
-            decimal excedente = 0;
-
-            if (pagamento > Conta.SaldoDevedor)
-            {
-                excedente = pagamento - Conta.SaldoDevedor;
-                pagamentoReal = Conta.SaldoDevedor;
-            }
+            decimal pagamentoReal = pagamento > Conta.SaldoDevedor ? Conta.SaldoDevedor : pagamento;
+            decimal excedente = pagamento > Conta.SaldoDevedor ? pagamento - Conta.SaldoDevedor : 0;
 
             decimal novoSaldoDevedor = Conta.SaldoDevedor - pagamentoReal;
             bool novoStatusAtivo = novoSaldoDevedor > 0;
@@ -344,14 +306,16 @@ namespace Horazon_Bank__projetoFinal
                 try
                 {
                     conexao.Open();
-                    string query = @"UPDATE Utilizadores 
-                                     SET Saldo = Saldo - @PagamentoReal + @Excedente, 
-                                         SaldoDevedor = @NovoSaldoDevedor, 
-                                         ParcelaMensal = @NovaParcela, 
-                                         EmprestimoAtivo = @NovoStatusAtivo 
-                                     WHERE Id = @Id";
 
-                    using (SqlCommand comando = new SqlCommand(query, conexao))
+                    // 1. Atualiza a tabela Utilizadores
+                    string queryUser = @"UPDATE Utilizadores 
+                                         SET Saldo = Saldo - @PagamentoReal + @Excedente, 
+                                             SaldoDevedor = @NovoSaldoDevedor, 
+                                             ParcelaMensal = @NovaParcela, 
+                                             EmprestimoAtivo = @NovoStatusAtivo 
+                                         WHERE Id = @Id";
+
+                    using (SqlCommand comando = new SqlCommand(queryUser, conexao))
                     {
                         comando.Parameters.AddWithValue("@PagamentoReal", pagamentoReal);
                         comando.Parameters.AddWithValue("@Excedente", excedente);
@@ -359,17 +323,22 @@ namespace Horazon_Bank__projetoFinal
                         comando.Parameters.AddWithValue("@NovaParcela", novaParcela);
                         comando.Parameters.AddWithValue("@NovoStatusAtivo", novoStatusAtivo ? 1 : 0);
                         comando.Parameters.AddWithValue("@Id", Conta.Id);
-
                         comando.ExecuteNonQuery();
                     }
 
-                    string txtHist = novoStatusAtivo ? $"Pagamento do empréstimo: -{pagamentoReal:C}" : "Empréstimo quitado";
-                    string queryHist = "INSERT INTO HistoricoTransacoes (UsuarioId, Texto) VALUES (@Id, @Texto)";
-                    using (SqlCommand cmdHist = new SqlCommand(queryHist, conexao))
+                    // ✅ 2. NOVO: Atualiza a tabela Emprestimos (Abate o saldo e soma uma parcela paga)
+                    string queryEmp = @"UPDATE Emprestimos 
+                                         SET ValorDevedor = @NovoSaldoDevedor,
+                                             ParcelasPagas = ParcelasPagas + 1,
+                                             Ativo = @NovoStatusAtivo
+                                         WHERE UsuarioId = @UsuarioId AND Ativo = 1";
+
+                    using (SqlCommand cmdEmp = new SqlCommand(queryEmp, conexao))
                     {
-                        cmdHist.Parameters.AddWithValue("@Id", Conta.Id);
-                        cmdHist.Parameters.AddWithValue("@Texto", txtHist);
-                        cmdHist.ExecuteNonQuery();
+                        cmdEmp.Parameters.AddWithValue("@NovoSaldoDevedor", novoSaldoDevedor);
+                        cmdEmp.Parameters.AddWithValue("@NovoStatusAtivo", novoStatusAtivo ? 1 : 0);
+                        cmdEmp.Parameters.AddWithValue("@UsuarioId", Conta.Id);
+                        cmdEmp.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
@@ -402,7 +371,6 @@ namespace Horazon_Bank__projetoFinal
                 textBox2.Clear();
                 textBox4.Clear();
                 textBox5.Clear();
-                textBox3.Text = Conta.Poupanca.ToString("F2");
 
                 textBox1.Enabled = true;
                 textBox2.Enabled = true;
