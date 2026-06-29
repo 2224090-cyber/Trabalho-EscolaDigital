@@ -21,7 +21,7 @@ namespace Horazon_Bank__projetoFinal
 
         private void PreencherComboBoxes()
         {
-            // Preencher dias (1-31)
+           
             guna2ComboBox1.Items.Clear();
             guna2ComboBox1.Items.Add("Selecione um dia");
             for (int i = 1; i <= 31; i++)
@@ -30,7 +30,7 @@ namespace Horazon_Bank__projetoFinal
             }
             guna2ComboBox1.SelectedIndex = 0;
 
-            // Preencher meses
+            
             guna2ComboBox2.Items.Clear();
             guna2ComboBox2.Items.Add("Selecione um mês");
             string[] meses = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -41,7 +41,7 @@ namespace Horazon_Bank__projetoFinal
             }
             guna2ComboBox2.SelectedIndex = 0;
 
-            // Preencher anos (até 1915)
+            
             guna2ComboBox3.Items.Clear();
             guna2ComboBox3.Items.Add("Selecione um ano");
             int anoAtual = DateTime.Now.Year;
@@ -51,7 +51,7 @@ namespace Horazon_Bank__projetoFinal
             }
             guna2ComboBox3.SelectedIndex = 0;
 
-            // Preencher gênero
+            
             guna2ComboBox4.Items.Clear();
             guna2ComboBox4.Items.Add("Selecione o gênero");
             guna2ComboBox4.Items.Add("Masculino");
@@ -126,12 +126,10 @@ namespace Horazon_Bank__projetoFinal
             return string.Join(" ", palavras);
         }
 
-        // =========================================================================
-        // --- BOTÃO: AVANÇAR / SOLICITAR ENVIAR CÓDIGO ---
-        // =========================================================================
+       
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            // Validações de Interface Básicas
+         
             if (!ValidarNomeApelido(textBox1.Text))
             {
                 MessageBox.Show("Nome inválido. Use apenas letras.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -182,7 +180,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // --- SEGURANÇA: VERIFICAR SE O EMAIL JÁ EXISTE NO SQL ---
+           
             using (SqlConnection conexao = Database.GetConnection())
             {
                 try
@@ -209,7 +207,7 @@ namespace Horazon_Bank__projetoFinal
                 }
             }
 
-            // --- PROCESSO DE ENVIO DE EMAIL ---
+          
             Conta.CodigoVerificacao = Conta.GerarCodigoVerificacao();
 
             email emailBanco = new email(
@@ -227,7 +225,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Aloca temporariamente os dados na RAM (Classe Estática)
+          
             Conta.Nome = textBox1.Text;
             Conta.Apelido = textBox2.Text;
             Conta.Dia = dia;
@@ -235,9 +233,9 @@ namespace Horazon_Bank__projetoFinal
             Conta.Ano = ano;
             Conta.Email = guna2TextBox4.Text.Trim();
             Conta.Senha = guna2TextBox5.Text;
-            Conta.Id = Conta.GerarId(); // Gera um número de conta/Id único aleatório
+            Conta.Id = Conta.GerarId(); 
 
-            // Abre a tela de verificação de token
+       
             this.Hide();
             using (var verificacaoForm = new verificacao_de_conta())
             {
@@ -322,5 +320,10 @@ namespace Horazon_Bank__projetoFinal
         private void guna2ComboBox4_SelectedIndexChanged(object sender, EventArgs e) { }
         private void label3_Click_1(object sender, EventArgs e) { }
         private void pictureBox1_Click(object sender, EventArgs e) { }
+
+        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

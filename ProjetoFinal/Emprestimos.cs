@@ -161,13 +161,48 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
+
             if (salario <= 0 || valorEmprestimo <= 0 || prazo <= 0)
             {
                 MessageBox.Show("Valores inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            decimal juros = poupanca >= 10000 ? 0.05m : poupanca >= 5000 ? 0.10m : 0.15m;
+            if (salario <= 0 || valorEmprestimo <= 0 || prazo <= 0)
+            {
+                MessageBox.Show("Valores inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Prazo máximo: 1080 meses
+            if (prazo > 1080)
+            {
+                MessageBox.Show("O prazo máximo permitido é de 1080 meses (90 anos).", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            decimal juros;
+
+            if (poupanca >= 100000)
+                juros = 0.02m;      // 2%
+            else if (poupanca >= 75000)
+                juros = 0.025m;     // 2,5%
+            else if (poupanca >= 50000)
+                juros = 0.03m;      // 3%
+            else if (poupanca >= 40000)
+                juros = 0.035m;     // 3,5%
+            else if (poupanca >= 30000)
+                juros = 0.04m;      // 4%
+            else if (poupanca >= 20000)
+                juros = 0.045m;     // 4,5%
+            else if (poupanca >= 10000)
+                juros = 0.05m;      // 5%
+            else if (poupanca >= 5000)
+                juros = 0.06m;      // 6%
+            else if (poupanca >= 1000)
+                juros = 0.07m;      // 7%
+            else
+                juros = 0.08m;      // 8%
 
             decimal valorTotal = valorEmprestimo + (valorEmprestimo * juros);
             Conta.ParcelaMensal = valorTotal / prazo;

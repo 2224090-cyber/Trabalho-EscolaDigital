@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Adicionado para comandos SQL Server
+using System.Data.SqlClient; 
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -16,14 +16,13 @@ namespace Horazon_Bank__projetoFinal
     {
         private ModoVerificacao modo;
 
-        // Construtor padrão (mantém compatibilidade com o fluxo de criar conta)
+       
         public verificacao_de_conta()
         {
             InitializeComponent();
             modo = ModoVerificacao.CriarConta;
         }
 
-        // Construtor com modo (usado no fluxo de reset de senha)
         public verificacao_de_conta(ModoVerificacao modoVerificacao)
         {
             InitializeComponent();
@@ -36,10 +35,9 @@ namespace Horazon_Bank__projetoFinal
 
         private void verificacão_de_conta_Load(object sender, EventArgs e)
         {
-            textBox6.Focus(); // primeira caixa a receber foco
+            textBox6.Focus(); 
         }
 
-        // ===================== AVANÇO/RECUO AUTOMÁTICO =====================
         private void LimitarParaUmDigito(TextBox caixaAtual, TextBox proximaCaixa)
         {
             string texto = caixaAtual.Text;

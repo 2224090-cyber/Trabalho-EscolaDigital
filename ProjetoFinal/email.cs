@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
-using System.Windows.Forms; // Adicionado para garantir o funcionamento da MessageBox
+using System.Windows.Forms; 
 
 namespace Horazon_Bank__projetoFinal
 {
-    // Define em que contexto a verificação por email está a ser usada
+   
     public enum ModoVerificacao
     {
         CriarConta,

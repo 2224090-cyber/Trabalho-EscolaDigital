@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horazon_Bank__projetoFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using static Horazon_Bank__projetoFinal.Conta;
+using System.Data.SqlClient; 
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -76,7 +76,7 @@ namespace Horazon_Bank__projetoFinal
         private void label7_Click(object sender, EventArgs e) { }
 
         // ==========================================================
-        // --- BUTTON 1: FAZER LOG OUT (CORRIGIDO COM LIMPEZA) ---
+        // --- BUTTON 1: FAZER LOG OUT (REUTILIZA LOGIN ORIGINAL) ---
         // ==========================================================
         private void button1_Click(object sender, EventArgs e)
         {
@@ -87,21 +87,9 @@ namespace Horazon_Bank__projetoFinal
             // 2. Procura se o Form1 original (oculto) já existe na memória
             Form formLoginOriginal = Application.OpenForms["Form1"];
 
-            // 3. Fecha todos os outros formulários abertos (Menu Principal, Perfil, etc.)
-            List<Form> formulariosAbertos = Application.OpenForms.Cast<Form>().ToList();
-            foreach (Form frm in formulariosAbertos)
-            {
-                if (frm.Name != "Form1")
-                {
-                    frm.Hide();
-                    frm.Close();
-                }
-            }
-
-            // 4. Se o Form1 original existir, limpa os campos e mostra-o
+            // 3. Se o Form1 original existir, limpa os campos e mostra-o
             if (formLoginOriginal != null)
             {
-                // ⚠️ Substitua "txtEmail" e "txtSenha" pelos nomes reais das suas TextBox no Form1
                 var txtEmail = formLoginOriginal.Controls.Find("txtEmail", true).FirstOrDefault() as TextBox;
                 var txtSenha = formLoginOriginal.Controls.Find("txtSenha", true).FirstOrDefault() as TextBox;
 
@@ -112,14 +100,24 @@ namespace Horazon_Bank__projetoFinal
             }
             else
             {
-                // Caso o Form1 não exista por alguma razão, cria um novo (já vem limpo)
                 Form1 novoLogin = new Form1();
                 novoLogin.Show();
+            }
+
+            // 4. Fecha todos os outros formulários abertos (Menu Principal, Perfil, etc.)
+            List<Form> formulariosAbertos = Application.OpenForms.Cast<Form>().ToList();
+            foreach (Form frm in formulariosAbertos)
+            {
+                if (frm.Name != "Form1")
+                {
+                    frm.Hide();
+                    frm.Close();
+                }
             }
         }
 
         // ==========================================================
-        // --- BUTTON 2: ELIMINAR CONTA (DELETE NO SQL) ---
+        // --- BUTTON 2: ELIMINAR CONTA (REUTILIZA LOGIN ORIGINAL) --
         // ==========================================================
         private void button2_Click(object sender, EventArgs e)
         {
@@ -137,7 +135,8 @@ namespace Horazon_Bank__projetoFinal
 
             // 2. Pede confirmação
             DialogResult resultado = MessageBox.Show(
-                "Tem a certeza que deseja apagar permanentemente a sua conta?",
+                "Tem a certeza que deseja apagar permanentemente a sua conta?\n" +
+                "Isto irá eliminar todo o seu histórico de transferências.",
                 "Confirmar Eliminação",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -145,14 +144,32 @@ namespace Horazon_Bank__projetoFinal
             if (resultado == DialogResult.Yes)
             {
                 string emailUsuario = Conta.Email;
+                string idUsuario = Conta.Id;
 
                 using (SqlConnection conexao = Database.GetConnection())
                 {
                     try
                     {
                         conexao.Open();
-                        string queryDeletar = "DELETE FROM Utilizadores WHERE Email = @Email";
 
+                        // A. Apagar primeiro o histórico de transações simples do utilizador
+                        string queryHist = "DELETE FROM HistoricoTransacoes WHERE UsuarioId = @Id";
+                        using (SqlCommand cmdHist = new SqlCommand(queryHist, conexao))
+                        {
+                            cmdHist.Parameters.AddWithValue("@Id", idUsuario);
+                            cmdHist.ExecuteNonQuery();
+                        }
+
+                        // B. Apagar as transferências onde ele foi o Remetente ou o Destinatário
+                        string queryTransf = "DELETE FROM Transferencias WHERE RemetenteId = @Id OR DestinatarioId = @Id";
+                        using (SqlCommand cmdTransf = new SqlCommand(queryTransf, conexao))
+                        {
+                            cmdTransf.Parameters.AddWithValue("@Id", idUsuario);
+                            cmdTransf.ExecuteNonQuery();
+                        }
+
+                        // C. Agora que os vínculos foram limpos, apagamos o utilizador principal
+                        string queryDeletar = "DELETE FROM Utilizadores WHERE Email = @Email";
                         using (SqlCommand cmdDeletar = new SqlCommand(queryDeletar, conexao))
                         {
                             cmdDeletar.Parameters.AddWithValue("@Email", emailUsuario);
@@ -187,7 +204,28 @@ namespace Horazon_Bank__projetoFinal
 
                 MessageBox.Show("Conta eliminada com sucesso da base de dados do Horizon Bank!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // ✅ CORREÇÃO: Fecha o menu_principal e outros ecrãs antes de voltar ao Login
+                // 4. Procura se o Form1 original (oculto) já existe na memória para evitar duplicados
+                Form formLoginOriginal = Application.OpenForms["Form1"];
+
+                if (formLoginOriginal != null)
+                {
+                    // Se o Login original existir, limpa as caixas de texto dele e exibe-o
+                    var txtEmail = formLoginOriginal.Controls.Find("txtEmail", true).FirstOrDefault() as TextBox;
+                    var txtSenha = formLoginOriginal.Controls.Find("txtSenha", true).FirstOrDefault() as TextBox;
+
+                    if (txtEmail != null) txtEmail.Text = "";
+                    if (txtSenha != null) txtSenha.Text = "";
+
+                    formLoginOriginal.Show();
+                }
+                else
+                {
+                    // Se falhar por algum motivo, abre uma instância limpa
+                    Form1 novoLogin = new Form1();
+                    novoLogin.Show();
+                }
+
+                // 5. Fecha rigorosamente todos os outros formulários ativos (Menu, Perfil, etc.)
                 List<Form> formulariosParaFechar = Application.OpenForms.Cast<Form>().ToList();
                 foreach (Form frm in formulariosParaFechar)
                 {
@@ -197,10 +235,6 @@ namespace Horazon_Bank__projetoFinal
                         frm.Close();
                     }
                 }
-
-                // Abre o ecrã de Login limpo
-                Form1 login = new Form1();
-                login.Show();
             }
         }
     }
