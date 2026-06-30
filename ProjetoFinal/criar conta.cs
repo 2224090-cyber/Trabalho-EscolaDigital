@@ -256,7 +256,7 @@ namespace Horazon_Bank__projetoFinal
         {
             PreencherComboBoxes();
             guna2TextBox5.PasswordChar = '*';
-            button1.Text = "Mostrar";
+            button1.Text = "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

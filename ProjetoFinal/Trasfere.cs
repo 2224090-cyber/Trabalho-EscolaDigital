@@ -187,10 +187,6 @@ namespace Horazon_Bank__projetoFinal
        
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
-            {
-                label2.Text = "Digite o ID do destinatário:";
-            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

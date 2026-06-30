@@ -20,8 +20,7 @@ namespace Horazon_Bank__projetoFinal
             InitializeComponent();
         }
 
-        // ===================== SINCRONIZAÇÃO COM SQL SERVER =====================
-        // Sincroniza os dados, mas agora a interface só vai refletir o Saldo
+       
         public void BuscarDadosDoBanco()
         {
             string contaId = Conta.Id;
@@ -57,8 +56,7 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ===================== ATUALIZAÇÃO DA INTERFACE =====================
-        // ✅ CORRIGIDO: Este método agora ATUALIZA APENAS O SALDO (label2). A label1 nunca é tocada!
+       
         public void AtualizarInterfaceCompleta()
         {
             label2.Text = $"Saldo: {Conta.Saldo:C}";
@@ -69,24 +67,22 @@ namespace Horazon_Bank__projetoFinal
             label2.Text = $"Saldo: {Conta.Saldo:C}";
         }
 
-        // ✅ REMOVIDO: O método AtualizarPoupanca() que alterava a label1 foi eliminado.
-
+        
         public void AtualizarHistorico() { }
 
-        // ===================== EVENTOS DE CARREGAMENTO =====================
+        
         private void Menu_Principal_Load(object sender, EventArgs e)
         {
             BuscarDadosDoBanco();
-            AtualizarInterfaceCompleta(); // Atualiza apenas o Saldo
+            AtualizarInterfaceCompleta(); 
         }
 
         private void Menu_Principal_Activated(object sender, EventArgs e)
         {
             BuscarDadosDoBanco();
-            AtualizarInterfaceCompleta(); // Atualiza apenas o Saldo
+            AtualizarInterfaceCompleta(); 
         }
 
-        // ===================== GESTÃO DE SUBFORMULÁRIOS =====================
         private void FormShow(Form frm)
         {
             ActiveFormClose();
@@ -116,7 +112,6 @@ namespace Horazon_Bank__projetoFinal
             btnAtivo.ForeColor = Color.Red;
         }
 
-        // ===================== CLIQUES DOS BOTÕES =====================
         private void button1_Click(object sender, EventArgs e) { }
         private void panel3_Paint(object sender, PaintEventArgs e) { }
 
@@ -125,7 +120,7 @@ namespace Horazon_Bank__projetoFinal
             ActiveButton(button1);
             ActiveFormClose();
             BuscarDadosDoBanco();
-            AtualizarInterfaceCompleta(); // Atualiza apenas o Saldo ao clicar no Início
+            AtualizarInterfaceCompleta(); 
         }
 
         private void button2_Click(object sender, EventArgs e)

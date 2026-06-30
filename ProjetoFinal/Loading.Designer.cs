@@ -52,6 +52,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
@@ -59,7 +60,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(502, 310);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(549, 96);
+            this.label1.Size = new System.Drawing.Size(541, 93);
             this.label1.TabIndex = 5;
             this.label1.Text = "Horizon Bank";
             // 

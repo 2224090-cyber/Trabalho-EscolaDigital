@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Comunicação com o SQL Server
+using System.Data.SqlClient; 
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -35,15 +35,15 @@ namespace Horazon_Bank__projetoFinal
             AtualizarHistorico();
         }
 
-        // ✅ 1. LÊ TODO O HISTÓRICO QUE ESTÁ NA BASE DE DADOS (FILTRADO POR ID)
+        
         private void CarregarHistoricoDoBanco()
         {
             if (string.IsNullOrEmpty(Conta.Id)) return;
 
-            // Limpa a memória RAM local antes de carregar para evitar duplicados
+            
             Conta.Historico.Clear();
 
-            // Pega todo o histórico do utilizador atual por ordem de inserção (ID incremental)
+            
             string query = "SELECT Texto FROM HistoricoTransacoes WHERE UsuarioId = @UsuarioId ORDER BY Id ASC";
 
             try
@@ -72,7 +72,7 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ✅ 2. EXIBE NO ECRÃ (DE TRÁS PARA A FRENTE - MAIS RECENTE PRIMEIRO)
+      
         private void AtualizarHistorico()
         {
             if (InvokeRequired)
@@ -83,11 +83,10 @@ namespace Horazon_Bank__projetoFinal
 
             StringBuilder sb = new StringBuilder();
 
-            // Percorre a lista da RAM de trás para a frente
+          
             for (int i = Conta.Historico.Count - 1; i >= 0; i--)
             {
-                // SEGREDO: Se encontrar a marcação de ocultação, para o loop aqui.
-                // Tudo o que foi feito DEPOIS da marcação continuará a aparecer normalmente!
+                
                 if (Conta.Historico[i].Contains("[OCULTO_CLIENTE]"))
                 {
                     break;
@@ -96,7 +95,7 @@ namespace Horazon_Bank__projetoFinal
                 sb.AppendLine(Conta.Historico[i]);
             }
 
-            // Atualiza a Label com o texto gerado ou a mensagem padrão
+            
             label2.Text = sb.Length > 0 ? sb.ToString() : "Nenhuma transação registada até ao momento.";
         }
 
@@ -104,9 +103,7 @@ namespace Horazon_Bank__projetoFinal
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
 
-        // ========================================================================
-        // === BOTÃO: LIMPAR VISUALIZAÇÃO (OCULTA NO APP, MANTÉM NO SQL) =========
-        // ========================================================================
+       
         private void button1_Click(object sender, EventArgs e)
         {
             if (label2.Text == "Nenhuma transação registada até ao momento.")
@@ -124,7 +121,7 @@ namespace Horazon_Bank__projetoFinal
 
             if (resposta == DialogResult.Yes)
             {
-                // Insere a barreira invisível de ocultação na tabela do banco de dados
+                
                 using (SqlConnection conexao = Database.GetConnection())
                 {
                     try
@@ -147,7 +144,7 @@ namespace Horazon_Bank__projetoFinal
                     }
                 }
 
-                // Recarrega o banco e atualiza a interface imediatamente
+                
                 CarregarHistoricoDoBanco();
                 AtualizarHistorico();
 

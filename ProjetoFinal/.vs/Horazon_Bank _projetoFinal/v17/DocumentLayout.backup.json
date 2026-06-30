@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\verificacao_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:verificacao_de_conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:criar conta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\bancodados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:bancodados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|c:\\users\\2224090\\desktop\\horazon_bank _projetofinal\\emprestimos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C86C1B98-2D15-4C1D-A7BF-F818E301BAAB}|Horazon_Bank _projetoFinal.csproj|solutionrelative:emprestimos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BancoDados.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\BancoDados.cs",
-              "RelativeDocumentMoniker": "BancoDados.cs",
-              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\BancoDados.cs",
-              "RelativeToolTip": "BancoDados.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:35:40.767Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Conta.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Conta.cs",
-              "RelativeDocumentMoniker": "Conta.cs",
-              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Conta.cs",
-              "RelativeToolTip": "Conta.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwM8AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:32:23.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "email.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\email.cs",
-              "RelativeDocumentMoniker": "email.cs",
-              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\email.cs",
-              "RelativeToolTip": "email.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAuwBUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:30:55.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "criar conta.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\criar conta.cs",
-              "RelativeDocumentMoniker": "criar conta.cs",
-              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\criar conta.cs",
-              "RelativeToolTip": "criar conta.cs",
-              "ViewState": "AgIAAPoAAAAAAAAAAAAYwDUAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:31:28.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "verificacao_de_conta.cs",
-              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\verificacao_de_conta.cs",
-              "RelativeDocumentMoniker": "verificacao_de_conta.cs",
-              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\verificacao_de_conta.cs",
-              "RelativeToolTip": "verificacao_de_conta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Title": "Emprestimos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Emprestimos.cs",
+              "RelativeDocumentMoniker": "Emprestimos.cs",
+              "ToolTip": "C:\\Users\\2224090\\Desktop\\Horazon_Bank _projetoFinal\\Emprestimos.cs [Design]*",
+              "RelativeToolTip": "Emprestimos.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T13:31:13.27Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-30T09:35:33.884Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -8,9 +8,7 @@ namespace Horazon_Bank__projetoFinal
 {
     internal static class Program
     {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Adicionado para suportar os comandos do SQL Server
+using System.Data.SqlClient; 
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -29,7 +29,7 @@ namespace Horazon_Bank__projetoFinal
             nomeUsuario = nome;
         }
 
-        // Validar Cartão de Cidadão (formato: 12345678 AB ou sem espaço)
+       
         private bool ValidarCartaoCidadao(string cartao)
         {
             if (string.IsNullOrWhiteSpace(cartao))
@@ -48,7 +48,7 @@ namespace Horazon_Bank__projetoFinal
             return true;
         }
 
-        // Validar Passaporte (formato flexível: letras e números)
+       
         private bool ValidarPassaporte(string passaporte)
         {
             if (string.IsNullOrWhiteSpace(passaporte))
@@ -59,7 +59,7 @@ namespace Horazon_Bank__projetoFinal
             return Regex.IsMatch(passaporteLimpo, @"^[A-Z]{1,2}\d{6,7}$");
         }
 
-        // Validar NIF - Número de Identificação Fiscal (9 dígitos)
+      
         private bool ValidarNIF(string nif)
         {
             if (string.IsNullOrWhiteSpace(nif))
@@ -84,7 +84,7 @@ namespace Horazon_Bank__projetoFinal
             return true;
         }
 
-        // Verifica se uma string de dígitos é uma sequência óbvia
+     
         private bool ContemSequenciaObvia(string digitos)
         {
             if (string.IsNullOrWhiteSpace(digitos) || digitos.Length < 3)
@@ -125,7 +125,7 @@ namespace Horazon_Bank__projetoFinal
             return digitos.All(c => c == digitos[0]);
         }
 
-        // Validar Morada
+        
         private bool ValidarMorada(string morada)
         {
             if (string.IsNullOrWhiteSpace(morada))
@@ -140,7 +140,7 @@ namespace Horazon_Bank__projetoFinal
             string nif = textBox2.Text.Trim();
             string morada = textBox3.Text.Trim();
 
-            // ===== VALIDAR CARTÃO DE CIDADÃO / PASSAPORTE =====
+          
             if (string.IsNullOrWhiteSpace(cartao))
             {
                 MessageBox.Show("Cartão de Cidadão ou Passaporte é obrigatório.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -162,7 +162,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // ===== VALIDAR NIF =====
+           
             if (!ValidarNIF(nif))
             {
                 MessageBox.Show(
@@ -175,7 +175,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // ===== VALIDAR MORADA =====
+           
             if (!ValidarMorada(morada))
             {
                 MessageBox.Show(
@@ -186,16 +186,15 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Formatar os valores finais
+            
             string documentoFormatado = cartao.Replace(" ", "").ToUpper();
 
-            // ===== SALVAR NA SESSÃO LOCAL (MEMÓRIA RAM) =====
+          
             Conta.CartaoCidadaoPassaporte = documentoFormatado;
             Conta.NIF = nif;
             Conta.Morada = morada;
 
-            // ===== CONEXÃO E ATUALIZAÇÃO NA BASE DE DADOS (SQL SERVER) =====
-            // Define qual e-mail usar (o recebido pelo construtor ou o da classe Conta)
+           
             string emailAlvo = !string.IsNullOrEmpty(Conta.Email) ? Conta.Email : emailUsuario;
 
             if (string.IsNullOrEmpty(emailAlvo))
@@ -208,9 +207,8 @@ namespace Horazon_Bank__projetoFinal
             {
                 try
                 {
-                    conexao.Open(); // Abre fisicamente a ligação ao banco HorizonBank
+                    conexao.Open(); 
 
-                    // Query SQL correspondente exatamente às colunas criadas no teu banco
                     string queryUpdate = @"UPDATE Utilizadores 
                                    SET CartaoCidadao = @Cartao, 
                                        NIF = @NIF, 
@@ -226,10 +224,10 @@ namespace Horazon_Bank__projetoFinal
 
                         int linhasAfetadas = cmd.ExecuteNonQuery();
 
-                        // Se nenhuma linha foi afetada, significa que o utilizador ainda não existe na tabela
+                        
                         if (linhasAfetadas == 0)
                         {
-                            // Se o teu plano for criar a conta apenas no Loading, ignora este aviso e retira o bloco SQL daqui
+                            
                             MessageBox.Show("Aviso: O registo base do utilizador ainda não existe no SQL Server. Os dados foram guardados na memória temporária.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -237,11 +235,11 @@ namespace Horazon_Bank__projetoFinal
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro de Conexão com o SQL Server: " + ex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Interrompe e impede o avanço se a ligação falhar de forma inesperada
+                    return; 
                 }
             }
 
-            // Avançar para o ecrã de Loading
+            
             this.Hide();
             using (var Loading = new Loading())
             {

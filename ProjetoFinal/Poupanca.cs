@@ -49,9 +49,7 @@ namespace Horazon_Bank__projetoFinal
             label2.Text = $"Poupança: {Conta.Poupanca:C}";
         }
 
-        // =========================================================================
-        // --- AÇÃO PRINCIPAL: CONFIRMAR OPERAÇÃO (GUARDAR OU RETIRAR) ---
-        // =========================================================================
+    
         private void button1_Click(object sender, EventArgs e)
         {
             decimal guardar = 0;
@@ -74,7 +72,7 @@ namespace Horazon_Bank__projetoFinal
 
             string txtHistorico = "";
 
-            // --- LÓGICA: GUARDAR DINHEIRO ---
+            
             if (querGuardar)
             {
                 if (!decimal.TryParse(textBox1.Text, out guardar) || guardar <= 0)
@@ -94,7 +92,7 @@ namespace Horazon_Bank__projetoFinal
                 txtHistorico = $"Poupança: Transferido para poupança -{guardar:C}";
             }
 
-            // --- LÓGICA: RETIRAR DINHEIRO ---
+           
             if (querRetirar)
             {
                 if (!decimal.TryParse(textBox2.Text, out retirar) || retirar <= 0)
@@ -114,14 +112,13 @@ namespace Horazon_Bank__projetoFinal
                 txtHistorico = $"Poupança: Resgatado da poupança +{retirar:C}";
             }
 
-            // --- ATUALIZAR NO SQL SERVER ---
             using (SqlConnection conexao = Database.GetConnection())
             {
                 try
                 {
                     conexao.Open();
 
-                    // 1. Atualizar Saldos do Utilizador
+                   
                     string querySaldos = @"UPDATE Utilizadores 
                                            SET Saldo = @Saldo, Poupanca = @Poupanca 
                                            WHERE Id = @Id";
@@ -135,7 +132,7 @@ namespace Horazon_Bank__projetoFinal
                         cmdSaldos.ExecuteNonQuery();
                     }
 
-                    // 2. Registar permanentemente na tabela HistoricoTransacoes
+                    
                     string queryHistorico = @"INSERT INTO HistoricoTransacoes (UsuarioId, Texto) 
                                               VALUES (@UsuarioId, @Texto)";
 
@@ -149,7 +146,7 @@ namespace Horazon_Bank__projetoFinal
                     Conta.AdicionarHistorico(txtHistorico);
                     MessageBox.Show("Operação realizada e sincronizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // ✅ CORREÇÃO: Avisa o menu_principal para atualizar as Labels de Saldo e Poupança imediatamente
+                    
                     menu_principal main = (menu_principal)Application.OpenForms["menu_principal"];
                     if (main != null)
                     {
@@ -159,7 +156,7 @@ namespace Horazon_Bank__projetoFinal
                 }
                 catch (Exception ex)
                 {
-                    // REVERSÃO DE SEGURANÇA
+           
                     if (querGuardar)
                     {
                         Conta.Saldo += guardar;
@@ -175,7 +172,7 @@ namespace Horazon_Bank__projetoFinal
                 }
             }
 
-            // Limpa os campos da interface
+            
             System.Diagnostics.Debug.WriteLine($"Saldo atual: {Conta.Saldo}, Poupança: {Conta.Poupanca}");
             AtualizarValores();
             textBox1.Clear();

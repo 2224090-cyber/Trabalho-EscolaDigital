@@ -72,7 +72,6 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ===================== EVENTOS DOS TEXTBOXES =====================
         private void textBox6_TextChanged(object sender, EventArgs e) => LimitarParaUmDigito(textBox6, textBox2);
         private void textBox6_KeyDown(object sender, KeyEventArgs e) => VoltarComBackspace(sender, e, null);
 
@@ -91,7 +90,7 @@ namespace Horazon_Bank__projetoFinal
         private void textBox5_TextChanged(object sender, EventArgs e) => LimitarParaUmDigito(textBox5, null);
         private void textBox5_KeyDown(object sender, KeyEventArgs e) => VoltarComBackspace(sender, e, textBox4);
 
-        // ===================== CONFIRMAR CÓDIGO (button1) =====================
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string codigoDigitado = textBox6.Text + textBox2.Text + textBox1.Text +
@@ -113,19 +112,19 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Código correto -> Limpar Token de Segurança temporário
+           
             Conta.CodigoVerificacao = "";
             this.DialogResult = DialogResult.OK;
 
             if (modo == ModoVerificacao.CriarConta)
             {
-                // --- GRAVAÇÃO DEFINITIVA NO BANCO DE DADOS (CORRIGIDA) ---
+               
                 using (SqlConnection conexao = Database.GetConnection())
                 {
                     try
                     {
                         conexao.Open();
-                        // Adicionadas as colunas Dia, Mes, Ano na Query
+                        
                         string queryInsert = @"INSERT INTO Utilizadores 
                                        (Id, Nome, Apelido, Email, Senha, Dia, Mes, Ano, Saldo, Poupanca, EmprestimoAtivo, SaldoDevedor, ParcelaMensal) 
                                        VALUES 
@@ -139,7 +138,7 @@ namespace Horazon_Bank__projetoFinal
                             cmd.Parameters.AddWithValue("@Email", Conta.Email);
                             cmd.Parameters.AddWithValue("@Senha", Conta.Senha);
 
-                            // Envia os dados que vieram do formulário "criar_conta" através da classe global
+                            
                             cmd.Parameters.AddWithValue("@Dia", Conta.Dia);
                             cmd.Parameters.AddWithValue("@Mes", Conta.Mes);
                             cmd.Parameters.AddWithValue("@Ano", Conta.Ano);
@@ -151,7 +150,7 @@ namespace Horazon_Bank__projetoFinal
                     {
                         MessageBox.Show("Erro crítico ao salvar a conta no banco de dados: " + ex.Message,
                                         "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Impede o avanço caso falte algo
+                        return; 
                     }
                 }
 

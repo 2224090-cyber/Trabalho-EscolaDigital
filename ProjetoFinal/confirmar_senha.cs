@@ -24,7 +24,7 @@ namespace Horazon_Bank__projetoFinal
             textBox2.PasswordChar = '*';
         }
 
-        // ===================== BOTÃO 1: ATUALIZAR SENHA NO BANCO =====================
+
         private void button1_Click(object sender, EventArgs e)
         {
             string novaSenha = textBox1.Text;
@@ -50,7 +50,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // ✅ NOVO: Atualizar a senha diretamente no SQL Server usando o ID como String
+
             string query = "UPDATE Utilizadores SET Senha = @Senha WHERE Id = @Id";
 
             try
@@ -60,7 +60,7 @@ namespace Horazon_Bank__projetoFinal
                     using (SqlCommand comando = new SqlCommand(query, conexao))
                     {
                         comando.Parameters.AddWithValue("@Senha", novaSenha);
-                        comando.Parameters.AddWithValue("@Id", Conta.Id); // Conta.Id tratado corretamente como string
+                        comando.Parameters.AddWithValue("@Id", Conta.Id);
 
                         conexao.Open();
                         int linhasAfetadas = comando.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Atualiza também na memória local por segurança
+
             Conta.Senha = novaSenha;
 
             MessageBox.Show("Senha alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -97,7 +97,7 @@ namespace Horazon_Bank__projetoFinal
 
         private void textBox2_TextChanged(object sender, EventArgs e) { }
 
-        // ===================== BOTÃO 3: CANCELAR / VOLTAR =====================
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -108,30 +108,35 @@ namespace Horazon_Bank__projetoFinal
             this.Close();
         }
 
-        // ===================== MOSTRAR/OCULTAR NOVA SENHA (textBox1) =====================
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.PasswordChar == '*')
             {
-                textBox1.PasswordChar = '\0'; // mostra a senha
+                textBox1.PasswordChar = '\0'; 
+                button2.Text = "";    
             }
             else
             {
-                textBox1.PasswordChar = '*'; // volta a ocultar
+                textBox1.PasswordChar = '*';  
+                button2.Text = "";     
             }
         }
 
-        // ===================== MOSTRAR/OCULTAR CONFIRMAR SENHA (textBox2) =====================
         private void button4_Click(object sender, EventArgs e)
         {
             if (textBox2.PasswordChar == '*')
             {
-                textBox2.PasswordChar = '\0'; // mostra a senha
+                textBox2.PasswordChar = '\0'; 
+                button4.Text = "";  
             }
             else
             {
-                textBox2.PasswordChar = '*'; // volta a ocultar
+                textBox2.PasswordChar = '*';  
+                button4.Text = "";     
             }
         }
+
     }
 }
+

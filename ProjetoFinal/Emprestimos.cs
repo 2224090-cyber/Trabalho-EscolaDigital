@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Suporte comandos SQL Server
+using System.Data.SqlClient; 
 
 namespace Horazon_Bank__projetoFinal
 {
@@ -62,7 +62,7 @@ namespace Horazon_Bank__projetoFinal
                     $"Total a pagar: {Conta.SaldoDevedor:C}\n" +
                     $"Parcela mensal: {Conta.ParcelaMensal:C}";
 
-                // Bloquear campos
+              
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 textBox4.Enabled = false;
@@ -77,7 +77,7 @@ namespace Horazon_Bank__projetoFinal
                     label8.Text = "";
                 }
 
-                // Desbloquear campos
+                
                 textBox1.Enabled = true;
                 textBox2.Enabled = true;
                 textBox4.Enabled = true;
@@ -131,7 +131,6 @@ namespace Horazon_Bank__projetoFinal
             base.OnFormClosed(e);
         }
 
-        // ===================== BOTÃO 1: CALCULAR / SIMULAR EMPRÉSTIMO =====================
         private void button1_Click(object sender, EventArgs e)
         {
             if (Conta.EmprestimoAtivo)
@@ -174,7 +173,7 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // Prazo máximo: 1080 meses
+            
             if (prazo > 1080)
             {
                 MessageBox.Show("O prazo máximo permitido é de 1080 meses (90 anos).", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -226,7 +225,7 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ===================== BOTÃO 2: ACEITAR EMPRÉSTIMO =====================
+     
         private void button2_Click(object sender, EventArgs e)
         {
             if (Conta.SaldoDevedor <= 0 || !Conta.EmprestimoAprovado || Conta.EmprestimoAtivo)
@@ -244,7 +243,7 @@ namespace Horazon_Bank__projetoFinal
                 {
                     conexao.Open();
 
-                    // 1. Atualiza a tabela Utilizadores (Saldo e Status)
+                    
                     string queryUser = @"UPDATE Utilizadores 
                                          SET Saldo = Saldo + @ValorEmprestimo, 
                                              SaldoDevedor = @SaldoDevedor, 
@@ -261,7 +260,7 @@ namespace Horazon_Bank__projetoFinal
                         cmdUser.ExecuteNonQuery();
                     }
 
-                    // ✅ 2. NOVO: Insere o registo detalhado na tabela Emprestimos
+                    
                     string queryEmp = @"INSERT INTO Emprestimos (UsuarioId, ValorSolicitado, ValorDevedor, ParcelaMensal, TotalParcelas, ParcelasPagas, Ativo) 
                                         VALUES (@UsuarioId, @ValorSolicitado, @ValorDevedor, @ParcelaMensal, @TotalParcelas, 0, 1)";
 
@@ -275,7 +274,7 @@ namespace Horazon_Bank__projetoFinal
                         cmdEmp.ExecuteNonQuery();
                     }
 
-                    // 3. O histórico agora é inserido automaticamente via classe Conta (Método inteligente criado antes)
+                   
                 }
                 catch (Exception ex)
                 {
@@ -284,7 +283,7 @@ namespace Horazon_Bank__projetoFinal
                 }
             }
 
-            // Atualizações na memória local (RAM) e disparo do histórico integrado
+            
             Conta.Saldo += valorEmprestimo;
             Conta.AdicionarHistorico($"Empréstimo: +{valorEmprestimo:C}");
             Conta.EmprestimoAtivo = true;
@@ -307,7 +306,7 @@ namespace Horazon_Bank__projetoFinal
             AtualizarEmprestimo();
         }
 
-        // ===================== BOTÃO 3: PAGAR / AMORTIZAR EMPRÉSTIMO =====================
+        
         private void button3_Click(object sender, EventArgs e)
         {
             if (!Conta.EmprestimoAtivo)
@@ -342,7 +341,7 @@ namespace Horazon_Bank__projetoFinal
                 {
                     conexao.Open();
 
-                    // 1. Atualiza a tabela Utilizadores
+                    
                     string queryUser = @"UPDATE Utilizadores 
                                          SET Saldo = Saldo - @PagamentoReal + @Excedente, 
                                              SaldoDevedor = @NovoSaldoDevedor, 
@@ -361,7 +360,7 @@ namespace Horazon_Bank__projetoFinal
                         comando.ExecuteNonQuery();
                     }
 
-                    // ✅ 2. NOVO: Atualiza a tabela Emprestimos (Abate o saldo e soma uma parcela paga)
+                    
                     string queryEmp = @"UPDATE Emprestimos 
                                          SET ValorDevedor = @NovoSaldoDevedor,
                                              ParcelasPagas = ParcelasPagas + 1,

@@ -75,19 +75,17 @@ namespace Horazon_Bank__projetoFinal
         private void perfil_Load(object sender, EventArgs e) { }
         private void label7_Click(object sender, EventArgs e) { }
 
-        // ==========================================================
-        // --- BUTTON 1: FAZER LOG OUT (REUTILIZA LOGIN ORIGINAL) ---
-        // ==========================================================
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            // 1. Limpeza de segurança dos dados na memória RAM ao sair
+           
             Conta.Email = "";
             Conta.LimparHistorico();
 
-            // 2. Procura se o Form1 original (oculto) já existe na memória
+         
             Form formLoginOriginal = Application.OpenForms["Form1"];
 
-            // 3. Se o Form1 original existir, limpa os campos e mostra-o
+            
             if (formLoginOriginal != null)
             {
                 var txtEmail = formLoginOriginal.Controls.Find("txtEmail", true).FirstOrDefault() as TextBox;
@@ -104,7 +102,7 @@ namespace Horazon_Bank__projetoFinal
                 novoLogin.Show();
             }
 
-            // 4. Fecha todos os outros formulários abertos (Menu Principal, Perfil, etc.)
+            
             List<Form> formulariosAbertos = Application.OpenForms.Cast<Form>().ToList();
             foreach (Form frm in formulariosAbertos)
             {
@@ -116,12 +114,10 @@ namespace Horazon_Bank__projetoFinal
             }
         }
 
-        // ==========================================================
-        // --- BUTTON 2: ELIMINAR CONTA (REUTILIZA LOGIN ORIGINAL) --
-        // ==========================================================
+        
         private void button2_Click(object sender, EventArgs e)
         {
-            // 1. Verifica se existe um empréstimo ativo
+           
             if (Conta.EmprestimoAtivo || Conta.SaldoDevedor > 0)
             {
                 MessageBox.Show(
@@ -133,7 +129,6 @@ namespace Horazon_Bank__projetoFinal
                 return;
             }
 
-            // 2. Pede confirmação
             DialogResult resultado = MessageBox.Show(
                 "Tem a certeza que deseja apagar permanentemente a sua conta?\n" +
                 "Isto irá eliminar todo o seu histórico de transferências.",
@@ -152,7 +147,6 @@ namespace Horazon_Bank__projetoFinal
                     {
                         conexao.Open();
 
-                        // A. Apagar primeiro o histórico de transações simples do utilizador
                         string queryHist = "DELETE FROM HistoricoTransacoes WHERE UsuarioId = @Id";
                         using (SqlCommand cmdHist = new SqlCommand(queryHist, conexao))
                         {
@@ -160,7 +154,7 @@ namespace Horazon_Bank__projetoFinal
                             cmdHist.ExecuteNonQuery();
                         }
 
-                        // B. Apagar as transferências onde ele foi o Remetente ou o Destinatário
+                      
                         string queryTransf = "DELETE FROM Transferencias WHERE RemetenteId = @Id OR DestinatarioId = @Id";
                         using (SqlCommand cmdTransf = new SqlCommand(queryTransf, conexao))
                         {
@@ -168,7 +162,7 @@ namespace Horazon_Bank__projetoFinal
                             cmdTransf.ExecuteNonQuery();
                         }
 
-                        // C. Agora que os vínculos foram limpos, apagamos o utilizador principal
+                        
                         string queryDeletar = "DELETE FROM Utilizadores WHERE Email = @Email";
                         using (SqlCommand cmdDeletar = new SqlCommand(queryDeletar, conexao))
                         {
@@ -183,7 +177,7 @@ namespace Horazon_Bank__projetoFinal
                     }
                 }
 
-                // 3. LIMPEZA DOS DADOS DA SESSÃO LOCAL (MEMÓRIA RAM)
+             
                 Conta.Nome = "";
                 Conta.Apelido = "";
                 Conta.Email = "";
@@ -204,12 +198,11 @@ namespace Horazon_Bank__projetoFinal
 
                 MessageBox.Show("Conta eliminada com sucesso da base de dados do Horizon Bank!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // 4. Procura se o Form1 original (oculto) já existe na memória para evitar duplicados
                 Form formLoginOriginal = Application.OpenForms["Form1"];
 
                 if (formLoginOriginal != null)
                 {
-                    // Se o Login original existir, limpa as caixas de texto dele e exibe-o
+                    
                     var txtEmail = formLoginOriginal.Controls.Find("txtEmail", true).FirstOrDefault() as TextBox;
                     var txtSenha = formLoginOriginal.Controls.Find("txtSenha", true).FirstOrDefault() as TextBox;
 
@@ -220,12 +213,12 @@ namespace Horazon_Bank__projetoFinal
                 }
                 else
                 {
-                    // Se falhar por algum motivo, abre uma instância limpa
+                    
                     Form1 novoLogin = new Form1();
                     novoLogin.Show();
                 }
 
-                // 5. Fecha rigorosamente todos os outros formulários ativos (Menu, Perfil, etc.)
+               
                 List<Form> formulariosParaFechar = Application.OpenForms.Cast<Form>().ToList();
                 foreach (Form frm in formulariosParaFechar)
                 {
